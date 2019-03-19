@@ -1,4 +1,4 @@
-# 💻INE5608 - Análise e projeto de sistemas
+# 💻 INE5608 - Análise e projeto de sistemas
 
 ## ***INE5608 First Assignment - Analysis and design of software systems***
 
