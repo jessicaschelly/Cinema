@@ -13,7 +13,7 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         initComponents();
 
         this.guiche = guiche;
-        setTitle("Guichê " + guiche);
+        setTitle("Compra de Ingressos Online");
 
         //setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

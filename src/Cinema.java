@@ -14,7 +14,7 @@ public class Cinema {
         mf.setLocation(0, 100);
         mf.setVisible(true);
         mf.exibeTelaPrincipal();
-
+        
         mf = new MainFrame(2);
         mf.setLocation(802, 100);
         mf.setVisible(true);

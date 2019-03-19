@@ -40,7 +40,7 @@ public class ControladorEntidades extends Controlador {
             ControladorSessao.getInstance().cadastra(salas.get(0), "20:00", filme1);
             ControladorSessao.getInstance().cadastra(salas.get(1), "21:00", filme2);
              ControladorSessao.getInstance().cadastra(salas.get(0), "22:30", filme1);
-            // ControladorSessao.getInstance().cadastra(s, "18:30", filme1);
+         
         } catch (Exception ex) {
             Logger.getLogger(ControladorEntidades.class.getName()).log(Level.SEVERE, null, ex);
         }
