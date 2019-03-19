@@ -16,6 +16,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField1 = new javax.swing.JPasswordField();
         btn_adicionar_filmes = new javax.swing.JButton();
         btn_listar_filmes = new javax.swing.JButton();
         btn_adicionar_sessoes = new javax.swing.JButton();
@@ -23,11 +24,15 @@ public class TelaFuncionario extends javax.swing.JPanel {
         lbl_bem_vindo = new javax.swing.JLabel();
         btn_relatorio = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        jPasswordField1.setText("jPasswordField1");
 
-        btn_adicionar_filmes.setBackground(new java.awt.Color(102, 153, 255));
+        setBackground(new java.awt.Color(55, 55, 55));
+        setFocusable(false);
+        setRequestFocusEnabled(false);
+
+        btn_adicionar_filmes.setBackground(new java.awt.Color(76, 76, 76));
         btn_adicionar_filmes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btn_adicionar_filmes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_adicionar_filmes.setForeground(new java.awt.Color(37, 184, 255));
         btn_adicionar_filmes.setText("Adicionar Filmes");
         btn_adicionar_filmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -35,9 +40,9 @@ public class TelaFuncionario extends javax.swing.JPanel {
             }
         });
 
-        btn_listar_filmes.setBackground(new java.awt.Color(102, 153, 255));
+        btn_listar_filmes.setBackground(new java.awt.Color(76, 76, 76));
         btn_listar_filmes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btn_listar_filmes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_listar_filmes.setForeground(new java.awt.Color(37, 184, 255));
         btn_listar_filmes.setText("Filmes Cadastrados");
         btn_listar_filmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,9 +50,9 @@ public class TelaFuncionario extends javax.swing.JPanel {
             }
         });
 
-        btn_adicionar_sessoes.setBackground(new java.awt.Color(102, 153, 255));
+        btn_adicionar_sessoes.setBackground(new java.awt.Color(76, 76, 76));
         btn_adicionar_sessoes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btn_adicionar_sessoes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_adicionar_sessoes.setForeground(new java.awt.Color(37, 184, 255));
         btn_adicionar_sessoes.setText("Adicionar sessões");
         btn_adicionar_sessoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +60,6 @@ public class TelaFuncionario extends javax.swing.JPanel {
             }
         });
 
-        btn_voltar.setBackground(new java.awt.Color(204, 204, 204));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +68,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
         });
 
         lbl_bem_vindo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbl_bem_vindo.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_bem_vindo.setForeground(new java.awt.Color(37, 184, 255));
         lbl_bem_vindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_bem_vindo.setText("label bem vindo");
 
@@ -99,9 +103,9 @@ public class TelaFuncionario extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(43, 43, 43)
                 .addComponent(lbl_bem_vindo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(btn_adicionar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_listar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,6 +152,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
     private javax.swing.JButton btn_listar_filmes;
     private javax.swing.JButton btn_relatorio;
     private javax.swing.JButton btn_voltar;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lbl_bem_vindo;
     // End of variables declaration//GEN-END:variables
 }

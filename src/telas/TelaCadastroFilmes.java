@@ -42,9 +42,8 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(51, 51, 51));
 
-        btn_voltar.setBackground(new java.awt.Color(204, 204, 204));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +51,6 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
             }
         });
 
-        btn_salvar.setBackground(new java.awt.Color(204, 204, 204));
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,37 +59,54 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(37, 184, 255));
         jLabel8.setText("Cadastro de filmes");
 
-        jPanel1.setBackground(new java.awt.Color(120, 120, 120));
+        jPanel1.setBackground(new java.awt.Color(76, 76, 76));
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Exibição");
+        cbox_linguagem.setBackground(new java.awt.Color(250, 250, 250));
 
+        jLabel7.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel7.setText("Exibição:");
+
+        cbox_exibicao.setBackground(new java.awt.Color(250, 250, 250));
         cbox_exibicao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3D" }));
 
+        txt_duracao.setBackground(new java.awt.Color(250, 250, 250));
+        txt_duracao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        txt_titulo.setBackground(new java.awt.Color(250, 250, 250));
+        txt_titulo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        txt_genero.setBackground(new java.awt.Color(250, 250, 250));
+        txt_genero.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        txt_sinopse.setBackground(new java.awt.Color(250, 250, 250));
         txt_sinopse.setColumns(20);
         txt_sinopse.setRows(5);
+        txt_sinopse.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(txt_sinopse);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Título");
+        jLabel1.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel1.setText("Título: ");
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Duração");
+        jLabel2.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel2.setText("Duração: ");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Sinopse");
+        jLabel3.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel3.setText("Sinopse:");
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Classificação");
+        jLabel5.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel5.setText("Classificação:");
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Gênero");
+        jLabel4.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel4.setText("Gênero: ");
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Liguagem");
+        txt_classificacao.setBackground(new java.awt.Color(250, 250, 250));
+        txt_classificacao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        jLabel6.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel6.setText("Linguagem:");
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("anos");
@@ -126,7 +141,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                                 .addComponent(cbox_linguagem, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cbox_exibicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9)
                                 .addGap(0, 0, Short.MAX_VALUE))))
@@ -141,7 +156,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                                 .addComponent(txt_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +187,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(txt_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,27 +199,26 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(297, 297, 297)
-                .addComponent(jLabel8)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
+                .addContainerGap(236, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_salvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_voltar)
-                        .addGap(12, 12, 12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_salvar)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(290, 290, 290))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(206, 206, 206))))
+                        .addGap(207, 207, 207))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

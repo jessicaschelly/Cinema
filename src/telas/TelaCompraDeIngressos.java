@@ -79,6 +79,9 @@ public class TelaCompraDeIngressos extends javax.swing.JPanel {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
 
+        setBackground(new java.awt.Color(55, 55, 55));
+        setForeground(new java.awt.Color(37, 184, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

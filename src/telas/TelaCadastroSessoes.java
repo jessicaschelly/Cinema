@@ -38,13 +38,13 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(55, 55, 55));
 
+        jLabel5.setBackground(new java.awt.Color(37, 184, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(37, 184, 255));
         jLabel5.setText("Cadastro de sessão");
 
-        btn_voltar.setBackground(new java.awt.Color(204, 204, 204));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +52,6 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
             }
         });
 
-        btn_salvar.setBackground(new java.awt.Color(204, 204, 204));
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,15 +59,28 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(76, 76, 76));
+
+        cbox_sala.setBackground(new java.awt.Color(250, 250, 250));
+
+        txt_horario.setBackground(new java.awt.Color(250, 250, 250));
+        txt_horario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(37, 184, 255));
         jLabel4.setText("Filme");
 
+        cbox_filme.setBackground(new java.awt.Color(250, 250, 250));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(37, 184, 255));
         jLabel1.setText("Sala");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(37, 184, 255));
         jLabel2.setText("Horário");
 
+        jLabel3.setForeground(new java.awt.Color(37, 184, 255));
         jLabel3.setText("(HH:mm)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -83,7 +95,7 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(cbox_filme, 0, 105, Short.MAX_VALUE)
+                    .addComponent(cbox_filme, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbox_sala, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txt_horario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,10 +130,10 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
                 .addContainerGap(292, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_salvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_voltar)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_salvar)
+                        .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(256, 256, 256))
@@ -132,11 +144,11 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(115, Short.MAX_VALUE)
+                .addContainerGap(138, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122)
+                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_voltar)
                     .addComponent(btn_salvar))

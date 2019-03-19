@@ -9,6 +9,8 @@ public class TelaPrincipal extends javax.swing.JPanel {
     TelaPrincipal(int guiche) {
         initComponents();
         lbl_guiche.setText("Guichê " + guiche);
+     
+       
     }
 
     @SuppressWarnings("unchecked")

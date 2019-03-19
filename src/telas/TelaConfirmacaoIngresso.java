@@ -68,27 +68,32 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
         btn_voltar = new javax.swing.JButton();
         btn_confirmar = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(55, 55, 55));
 
         lbl_valor.setBackground(new java.awt.Color(0, 153, 102));
         lbl_valor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lbl_valor.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_valor.setForeground(new java.awt.Color(37, 184, 255));
         lbl_valor.setText("valor");
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nome");
+        txt_nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(250, 250, 250), 4, true));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Idade");
+        jLabel1.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel1.setText("Nome:");
 
+        jLabel2.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel2.setText("Idade:");
+
+        txt_idade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 250, 250), 4));
+
+        cbox_poltrona.setBackground(new java.awt.Color(250, 250, 250));
         cbox_poltrona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poltrona 1", "Poltrona 2", "Poltrona 3", "Poltrona 4" }));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Poltrona");
+        jLabel3.setForeground(new java.awt.Color(37, 184, 255));
+        jLabel3.setText("Poltrona:");
 
-        rbtn_inteira.setBackground(new java.awt.Color(102, 102, 102));
+        rbtn_inteira.setBackground(new java.awt.Color(51, 51, 51));
         buttonGroup1.add(rbtn_inteira);
-        rbtn_inteira.setForeground(new java.awt.Color(255, 255, 255));
+        rbtn_inteira.setForeground(new java.awt.Color(37, 184, 255));
         rbtn_inteira.setText("Inteira");
         rbtn_inteira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,12 +103,12 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
 
         jLabel4.setBackground(new java.awt.Color(0, 153, 102));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(37, 184, 255));
         jLabel4.setText("Valor:");
 
-        rbtn_meia_entrada.setBackground(new java.awt.Color(102, 102, 102));
+        rbtn_meia_entrada.setBackground(new java.awt.Color(51, 51, 51));
         buttonGroup1.add(rbtn_meia_entrada);
-        rbtn_meia_entrada.setForeground(new java.awt.Color(255, 255, 255));
+        rbtn_meia_entrada.setForeground(new java.awt.Color(37, 184, 255));
         rbtn_meia_entrada.setText("Meia entrada");
         rbtn_meia_entrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,26 +116,26 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(37, 184, 255));
         jLabel5.setText("Tipo de ingresso: ");
 
-        lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_titulo.setText("jLabel12");
+        lbl_titulo.setForeground(new java.awt.Color(37, 184, 255));
+        lbl_titulo.setText("Título: ");
 
-        lbl_duracao.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_duracao.setForeground(new java.awt.Color(37, 184, 255));
         lbl_duracao.setText("jLabel13");
 
-        lbl_genero.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_genero.setForeground(new java.awt.Color(37, 184, 255));
         lbl_genero.setText("jLabel14");
 
-        lbl_classificacao.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_classificacao.setForeground(new java.awt.Color(37, 184, 255));
         lbl_classificacao.setText("jLabel15");
 
-        lbl_exibicao.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_exibicao.setForeground(new java.awt.Color(37, 184, 255));
         lbl_exibicao.setText("jLabel16");
 
         lbl_sinopse.setBackground(new java.awt.Color(102, 102, 102));
-        lbl_sinopse.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_sinopse.setForeground(new java.awt.Color(37, 184, 255));
         lbl_sinopse.setText("jLabel17");
         lbl_sinopse.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lbl_sinopse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -165,36 +170,35 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
                     .addComponent(lbl_genero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_duracao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_exibicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(116, 116, 116)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_valor)
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(116, 116, 116)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(rbtn_meia_entrada)
-                                .addComponent(rbtn_inteira)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel3))
-                                    .addGap(25, 25, 25)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbox_poltrona, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txt_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(249, 249, 249)
-                            .addComponent(btn_voltar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btn_confirmar))))
-                .addGap(41, 41, 41))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(rbtn_meia_entrada)
+                            .addComponent(rbtn_inteira)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbox_poltrona, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(86, 86, 86))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_voltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_confirmar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_valor)))
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +229,7 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
                     .addComponent(lbl_classificacao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbtn_meia_entrada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
