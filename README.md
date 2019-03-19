@@ -1,4 +1,6 @@
-# Cinema
+# 💻INE5608 - Análise e projeto de sistemas
+
+## ***INE5608 First Assignment - Analysis and design of software systems***
 
 Implementar um sistema orientado a objetos em Java, utilizando interface gráfica, que simule a venda de ingressos de um cinema.
 
