@@ -55,5 +55,10 @@ public class ControladorFilme extends Controlador {
         List<String> names = filmes.stream().map(x -> x.getTitulo() + " - " +x.getLinguagem() + " - " + x.getExibicao().getName()).collect(Collectors.toList());
         return names.toArray(new String[0]);
     }
+     
+       
+       public void remove(Filme filme) {
+           filmes.remove(filme);
+       }
 
 }

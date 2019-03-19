@@ -68,17 +68,17 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel4.setText("Filme");
+        jLabel4.setText("Filme:");
 
         cbox_filme.setBackground(new java.awt.Color(250, 250, 250));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel1.setText("Sala");
+        jLabel1.setText("Sala:");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel2.setText("Horário");
+        jLabel2.setText("Horário:");
 
         jLabel3.setForeground(new java.awt.Color(37, 184, 255));
         jLabel3.setText("(HH:mm)");
@@ -127,7 +127,7 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(292, Short.MAX_VALUE)
+                .addContainerGap(287, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_voltar)
