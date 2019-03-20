@@ -273,7 +273,7 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
 
             Ingresso ing = ControladorEntidades.getInstance().geraIngresso(sessao, rbtn_inteira.isSelected());
 
-            JOptionPane.showMessageDialog(null, "Ingresso gerado com sucesso! \r\nID: " + ing.ID);
+            JOptionPane.showMessageDialog(null, "Ingresso gerado com sucesso! \r\n Seu ID é: " + ing.ID);
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Erro, idade em formato inválido!");

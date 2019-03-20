@@ -1,6 +1,7 @@
 package telas;
 
 import entidades.Funcionario;
+import entidades.Gerente;
 import entidades.Sessao;
 import interfaces.IMainFrame;
 import java.awt.BorderLayout;
@@ -49,6 +50,7 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
     }
 
     Funcionario funcionarioLogado;
+    Gerente gerentelogado;
 
     public void exibeTelaFuncionario(Funcionario funcionario) {
         funcionarioLogado = funcionario;
@@ -57,13 +59,28 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
 
         validate();
     }
-
+    
     public void exibeTelaFuncionario() {
         TelaFuncionario tf = new TelaFuncionario(funcionarioLogado);
         setContentPane(tf);
 
         validate();
     }
+    
+    public void exibeTelaGerencia(Gerente gerente) {
+        TelaGerencia tf = new TelaGerencia(gerente);
+        setContentPane(tf);
+
+        validate();
+    }
+    
+      public void exibeTelaGerencia() {
+        TelaGerencia tf = new TelaGerencia(gerentelogado);
+        setContentPane(tf);
+
+        validate();
+    }
+
 
     public void exibeTelaCompraDeIngressos() {
         TelaCompraDeIngressos ci = new TelaCompraDeIngressos();

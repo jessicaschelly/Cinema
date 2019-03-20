@@ -2,6 +2,7 @@ package telas;
 
 import controladores.ControladorEntidades;
 import entidades.Funcionario;
+import entidades.Gerente;
 import javax.swing.*;
 
 public class TelaPrincipal extends javax.swing.JPanel {
@@ -18,8 +19,9 @@ public class TelaPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_acesso_funcionario = new javax.swing.JButton();
         lbl_guiche = new javax.swing.JLabel();
+        btn_acesso_gerencia = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -35,13 +37,13 @@ public class TelaPrincipal extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(173, 52, 62));
-        jButton2.setForeground(new java.awt.Color(250, 250, 250));
-        jButton2.setText("Acesso funcionário");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 52, 62), 2, true));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_acesso_funcionario.setBackground(new java.awt.Color(173, 52, 62));
+        btn_acesso_funcionario.setForeground(new java.awt.Color(250, 250, 250));
+        btn_acesso_funcionario.setText("Acesso funcionário");
+        btn_acesso_funcionario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 52, 62), 2, true));
+        btn_acesso_funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_acesso_funcionarioActionPerformed(evt);
             }
         });
 
@@ -51,22 +53,37 @@ public class TelaPrincipal extends javax.swing.JPanel {
         lbl_guiche.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_guiche.setText("jLabel1");
 
+        btn_acesso_gerencia.setBackground(new java.awt.Color(173, 52, 62));
+        btn_acesso_gerencia.setForeground(new java.awt.Color(250, 250, 250));
+        btn_acesso_gerencia.setText("Acesso gerência");
+        btn_acesso_gerencia.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(173, 52, 62), 2, true));
+        btn_acesso_gerencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_acesso_gerenciaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(190, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))
+                        .addComponent(btn_acesso_gerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_acesso_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbl_guiche, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(331, 331, 331))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
+                        .addGap(0, 178, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(160, 160, 160))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbl_guiche, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(331, 331, 331))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,7 +93,9 @@ public class TelaPrincipal extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_acesso_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_acesso_gerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -85,7 +104,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCompraDeIngressos();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_acesso_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acesso_funcionarioActionPerformed
         String option = JOptionPane.showInputDialog("Entre com o ID do funcionário:");
 
         Funcionario funcionario = ControladorEntidades.getInstance().getFuncionarioById(option);
@@ -94,12 +113,24 @@ public class TelaPrincipal extends javax.swing.JPanel {
         } else if (option != null) {
             JOptionPane.showMessageDialog(null, "Erro, funcionário não encontrado.");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_acesso_funcionarioActionPerformed
+
+    private void btn_acesso_gerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acesso_gerenciaActionPerformed
+        String option = JOptionPane.showInputDialog("Entre com o ID do Gerente:");
+
+        Gerente gerente = ControladorEntidades.getInstance().getGerenteoById(option);
+        if (gerente != null) {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaGerencia(gerente);
+        } else if (option != null) {
+            JOptionPane.showMessageDialog(null, "Erro, gerente não encontrado.");
+        }
+    }//GEN-LAST:event_btn_acesso_gerenciaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_acesso_funcionario;
+    private javax.swing.JButton btn_acesso_gerencia;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel lbl_guiche;
     // End of variables declaration//GEN-END:variables
 }

@@ -45,6 +45,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
         btn_listar_filmes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btn_listar_filmes.setForeground(new java.awt.Color(37, 184, 255));
         btn_listar_filmes.setText("Filmes Cadastrados");
+        btn_listar_filmes.setActionCommand("Listar Filmes");
         btn_listar_filmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_listar_filmesActionPerformed(evt);

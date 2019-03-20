@@ -6,6 +6,7 @@
 package telas;
 
 import controladores.ControladorSessao;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -45,6 +46,11 @@ public class TelaListarSessoes extends javax.swing.JPanel {
         list_sessoes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         list_sessoes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         list_sessoes.setForeground(new java.awt.Color(37, 184, 255));
+        list_sessoes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                list_sessoesKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(list_sessoes);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -117,8 +123,12 @@ public class TelaListarSessoes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void remover_sessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_sessaoActionPerformed
-        
+
     }//GEN-LAST:event_remover_sessaoActionPerformed
+
+    private void list_sessoesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_list_sessoesKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_list_sessoesKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
