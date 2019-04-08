@@ -22,7 +22,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="292" max="32767" attributes="0"/>
+              <EmptySpace pref="287" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btn_voltar" min="-2" max="-2" attributes="0"/>
@@ -179,7 +179,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="b8" red="25" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Filme"/>
+            <Property name="text" type="java.lang.String" value="Filme:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbox_filme">
@@ -203,7 +203,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="b8" red="25" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sala"/>
+            <Property name="text" type="java.lang.String" value="Sala:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -214,7 +214,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="b8" red="25" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hor&#xe1;rio"/>
+            <Property name="text" type="java.lang.String" value="Hor&#xe1;rio:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

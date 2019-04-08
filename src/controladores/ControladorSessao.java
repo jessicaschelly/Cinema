@@ -61,4 +61,14 @@ public class ControladorSessao extends Controlador {
                 .collect(Collectors.toList());
     }
     
+   public String[] dadosSessao() {
+        List<String> dados = sessoes.stream().map(x -> x.getFilme().getTitulo() + " - " + x.getHorario() + " - " + x.getSala()).collect(Collectors.toList());
+        return dados.toArray(new String[0]);
+    }
+   
+    public void remove(Sessao sessao) {
+           sessoes.remove(sessao);
+       }
+       
+    
 }

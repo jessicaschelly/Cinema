@@ -248,6 +248,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Duração em formato incorreto");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
+            
         }
 
 
