@@ -21,11 +21,12 @@ public class ControladorFilme extends Controlador {
         return instance;
     }
 
-    public Filme cadastra(String titulo, String duracao, String genero, String sinopse, Linguagem linguagem, Exibicao exibicao, String classificacao) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException {
+    public Filme cadastra(String titulo, String duracao, String genero, String sinopse, Linguagem linguagem, Exibicao exibicao, String classificacao, String image) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException {
         verificaCampoVazio(titulo, "Titulo");
         verificaCampoVazio(duracao, "Duração");
         verificaCampoVazio(genero, "Gênero");
         verificaCampoVazio(sinopse, "Sinopse");
+        verificaCampoVazio(image, "Image");
 
         int classificacaoInt = Integer.parseInt(classificacao);
 
@@ -35,7 +36,7 @@ public class ControladorFilme extends Controlador {
             throw new CadastroRepetidoException("Erro: Filme com titulo '" + titulo + "' já cadastrado.");
         }
 
-        Filme filme = new Filme(titulo, duracaoTime, genero, sinopse, linguagem, exibicao, classificacaoInt);
+        Filme filme = new Filme(titulo, duracaoTime, genero, sinopse, linguagem, exibicao, classificacaoInt, image);
         filmes.add(filme);
         return filme;
     }

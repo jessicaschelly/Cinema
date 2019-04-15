@@ -51,7 +51,6 @@ public class TelaCompraDeIngressos extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, "Sessão começou há mais de 10 minutos atrás.");
                         return;
                     }
-
                     if (sessao.temVaga()) {
                         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaConfirmacaoIngresso(sessao);
                     } else {

@@ -12,8 +12,9 @@ public class Filme {
     Exibicao exibicao;
     Linguagem linguagem;
     int classificacao;
+    private String image;
 
-    public Filme(String titulo, Duration duracao, String genero, String sinopse, Linguagem linguagem, Exibicao exibicao, int classificacao) {
+    public Filme(String titulo, Duration duracao, String genero, String sinopse, Linguagem linguagem, Exibicao exibicao, int classificacao, String image) {
         this.titulo = titulo;
         this.duracao = duracao;
         this.sinopse = sinopse;
@@ -21,6 +22,7 @@ public class Filme {
         this.exibicao = exibicao;
         this.linguagem = linguagem;
         this.classificacao = classificacao;
+        this.image = image;
     }
 
     public int getClassificacao() {
@@ -78,5 +80,15 @@ public class Filme {
     public void setLinguagem(Linguagem linguagem) {
         this.linguagem = linguagem;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
+    
 
 }

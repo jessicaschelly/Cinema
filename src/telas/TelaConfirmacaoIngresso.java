@@ -66,7 +66,7 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
         lbl_exibicao = new javax.swing.JLabel();
         lbl_sinopse = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
-        btn_confirmar = new javax.swing.JButton();
+        btn_concluir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(55, 55, 55));
 
@@ -141,17 +141,26 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
         lbl_sinopse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbl_sinopse.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        btn_voltar.setBackground(new java.awt.Color(95, 0, 0));
+        btn_voltar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btn_voltar.setForeground(new java.awt.Color(250, 250, 250));
         btn_voltar.setText("Voltar");
+        btn_voltar.setToolTipText("");
+        btn_voltar.setMinimumSize(new java.awt.Dimension(162, 95));
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_voltarActionPerformed(evt);
             }
         });
 
-        btn_confirmar.setText("Confirmar");
-        btn_confirmar.addActionListener(new java.awt.event.ActionListener() {
+        btn_concluir.setBackground(new java.awt.Color(52, 163, 55));
+        btn_concluir.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btn_concluir.setForeground(new java.awt.Color(250, 250, 250));
+        btn_concluir.setText("Concluir");
+        btn_concluir.setMinimumSize(new java.awt.Dimension(162, 95));
+        btn_concluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_confirmarActionPerformed(evt);
+                btn_concluirActionPerformed(evt);
             }
         });
 
@@ -162,16 +171,21 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_sinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_classificacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(156, 156, 156))
-                    .addComponent(lbl_genero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_duracao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_exibicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(116, 116, 116)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_sinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_classificacao, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                                .addGap(156, 156, 156))
+                            .addComponent(lbl_genero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_duracao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_exibicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(116, 116, 116))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -188,17 +202,15 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
                                     .addComponent(cbox_poltrona, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(86, 86, 86))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_voltar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_confirmar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_valor)))
-                        .addGap(51, 51, 51))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_concluir, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_valor)
+                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,18 +241,17 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
                     .addComponent(lbl_classificacao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbtn_meia_entrada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(lbl_valor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_voltar)
-                            .addComponent(btn_confirmar)))
-                    .addComponent(lbl_sinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_sinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lbl_valor))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_concluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -256,37 +267,18 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_rbtn_meia_entradaActionPerformed
 
-    private void btn_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmarActionPerformed
-        Poltrona poltrona = sessao.poltronas.get(cbox_poltrona.getSelectedIndex());
-
-        if (poltrona.ocupada) {
-            JOptionPane.showMessageDialog(null, "Erro, poltrona já está ocupada!");
-            return;
-        }
-        try {
-            int idade = Integer.parseInt(txt_idade.getText());
-            if (sessao.getFilme().getClassificacao() > idade) {
-                JOptionPane.showMessageDialog(null, "Erro, idade abaixo da classificação!");
-                return;
-            }
-            poltrona.ocupada = true;
-
-            Ingresso ing = ControladorEntidades.getInstance().geraIngresso(sessao, rbtn_inteira.isSelected());
-
-            JOptionPane.showMessageDialog(null, "Ingresso gerado com sucesso! \r\n Seu ID é: " + ing.ID);
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Erro, idade em formato inválido!");
-        }
-    }//GEN-LAST:event_btn_confirmarActionPerformed
-
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCompraDeIngressos();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaSelecaoFilme();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void btn_concluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_concluirActionPerformed
+
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento();
+    }//GEN-LAST:event_btn_concluirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_confirmar;
+    private javax.swing.JButton btn_concluir;
     private javax.swing.JButton btn_voltar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbox_poltrona;
