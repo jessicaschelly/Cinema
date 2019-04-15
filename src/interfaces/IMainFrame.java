@@ -20,5 +20,9 @@ public interface IMainFrame {
     void exibeTelaCadastroSessoes();
 
     void exibeTelaConfirmacaoIngresso(Sessao sessao);
+    
+    void exibeTelaSelecaoFilme();
+    
+    void exibeTelaPagamento();
 
 }

@@ -16,7 +16,10 @@ public class Sessao {
         poltronas.add(new Poltrona());
         poltronas.add(new Poltrona());
         poltronas.add(new Poltrona());
-
+        poltronas.add(new Poltrona());
+        poltronas.add(new Poltrona());
+        poltronas.add(new Poltrona());
+        
         this.sala = sala;
         this.horario = horario;
         this.filme = filme;

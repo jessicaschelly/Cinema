@@ -10,12 +10,12 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
 
     public int guiche;
 
-    public MainFrame(int guiche) {
+    public MainFrame() {
         initComponents();
 
-        this.guiche = guiche;
+        
         setTitle("Compra de Ingressos Online");
-
+         setSize(1020,700);
         //setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
@@ -43,7 +43,7 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void exibeTelaPrincipal() {
-        TelaPrincipal tp = new TelaPrincipal(guiche);
+        TelaPrincipal tp = new TelaPrincipal();
         setContentPane(tp);
 
         validate();
@@ -118,8 +118,21 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
     }
 
     public void exibeTelaConfirmacaoIngresso(Sessao sessao) {
-        TelaConfirmacaoIngresso tci = new TelaConfirmacaoIngresso(sessao);
-        setContentPane(tci);
+        TelaConfirmacaoIngresso tf = new TelaConfirmacaoIngresso(sessao);
+        setContentPane(tf);
+        validate();
+    }
+    
+    @Override
+    public void exibeTelaSelecaoFilme() {
+        TelaSelecaoFilme tf = new TelaSelecaoFilme();
+        setContentPane(tf);
+        validate();
+    }
+     
+    public void exibeTelaPagamento() {
+        TelaPagamento tf = new TelaPagamento();
+        setContentPane(tf);
         validate();
     }
 

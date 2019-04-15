@@ -42,11 +42,16 @@ public class ControladorEntidades extends Controlador {
         
         try {
 
-            Filme filme1 = ControladorFilme.getInstance().cadastra("Batman", "01:00", "Comédia", "Um herói se metendo em altas aventuras.", Linguagem.LEGENDADO, Exibicao.TRESDIMENSOES, "16");
-            Filme filme2 = ControladorFilme.getInstance().cadastra("Toy Story", "01:00", "Animação","Um boneco se metendo em altas aventuras.", Linguagem.LEGENDADO, Exibicao.DUASDIMENSOES, "10");
+            Filme filme1 = ControladorFilme.getInstance().cadastra("Homem-Aranha: No aranhaverso", "01:57", "Animação", "O jovem Miles Morales se torna o Homem-Aranha de sua realidade, cruzando seu caminho com cinco colegas de outras dimensões para impedir uma ameaça a todas as realidades. ", 
+                    Linguagem.LEGENDADO, Exibicao.TRESDIMENSOES, "18","resources/homemaranha.jpg");
+            Filme filme2 = ControladorFilme.getInstance().cadastra("Jogador Nº 1", "01:00", "Aventura","Quando o criador de um mundo de realidade virtual chamado OASIS morre, ele lança um vídeo no qual ele desafia todos os usuários do OASIS a encontrar seu Easter Egg, que dará ao descobridor sua fortuna.", 
+                    Linguagem.LEGENDADO, Exibicao.DUASDIMENSOES, "12","resources/readyplayerone.jpg");
+            Filme filme3 = ControladorFilme.getInstance().cadastra("Venom", "01:52", "Ação","Um repórter falido é ligado a uma entidade alienígena, um dos muitos simbiontes que invadiram a Terra. Mas o ser tem um gosto para a Terra e decide protegê-lo.", 
+                    Linguagem.LEGENDADO, Exibicao.DUASDIMENSOES, "10","resources/venom.jpg");
+            
             ControladorSessao.getInstance().cadastra(salas.get(0), "20:00", filme1);
             ControladorSessao.getInstance().cadastra(salas.get(1), "21:00", filme2);
-             ControladorSessao.getInstance().cadastra(salas.get(0), "22:30", filme1);
+            ControladorSessao.getInstance().cadastra(salas.get(0), "22:30", filme1);
          
         } catch (Exception ex) {
             Logger.getLogger(ControladorEntidades.class.getName()).log(Level.SEVERE, null, ex);

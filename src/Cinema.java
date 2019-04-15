@@ -10,16 +10,10 @@ public class Cinema {
     public static void main(String[] args) {
 
         ControladorEntidades.getInstance();
-        MainFrame mf = new MainFrame(1);
+        MainFrame mf = new MainFrame();
         mf.setLocation(0, 100);
         mf.setVisible(true);
         mf.exibeTelaPrincipal();
-        
-        mf = new MainFrame(2);
-        mf.setLocation(802, 100);
-        mf.setVisible(true);
-        mf.exibeTelaPrincipal();
-
     }
 
 }
