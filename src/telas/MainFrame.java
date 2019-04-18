@@ -1,5 +1,6 @@
 package telas;
 
+import entidades.Filme;
 import entidades.Funcionario;
 import entidades.Gerente;
 import entidades.Sessao;
@@ -117,8 +118,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-    public void exibeTelaConfirmacaoIngresso(Sessao sessao) {
-        TelaConfirmacaoIngresso tf = new TelaConfirmacaoIngresso(sessao);
+    public void exibeTelaConfirmacaoIngresso(Filme filme) {
+        TelaConfirmacaoIngresso tf = new TelaConfirmacaoIngresso(filme);
         setContentPane(tf);
         validate();
     }
@@ -130,8 +131,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
      
-    public void exibeTelaPagamento() {
-        TelaPagamento tf = new TelaPagamento();
+    public void exibeTelaPagamento(Sessao sessao) {
+        TelaPagamento tf = new TelaPagamento(sessao);
         setContentPane(tf);
         validate();
     }

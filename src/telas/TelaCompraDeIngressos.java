@@ -52,7 +52,7 @@ public class TelaCompraDeIngressos extends javax.swing.JPanel {
                         return;
                     }
                     if (sessao.temVaga()) {
-                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaConfirmacaoIngresso(sessao);
+                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaConfirmacaoIngresso(filme);
                     } else {
                         JOptionPane.showMessageDialog(null, "Sessão está lotada.");
                     }

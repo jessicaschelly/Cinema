@@ -25,7 +25,6 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
         Filme filme;
     public TelaSelecaoFilme() {
         initComponents();
-        
          for(Filme filme : ControladorFilme.getInstance().filmes ){
             grid_filmes.add(new InfoFilme(filme));
         }
@@ -48,6 +47,9 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
 
         grid_filmes.setLayout(new java.awt.GridLayout(1, 0));
 
+        btn_voltar.setBackground(new java.awt.Color(95, 0, 0));
+        btn_voltar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btn_voltar.setForeground(new java.awt.Color(250, 250, 250));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,8 +66,8 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
                 .addComponent(grid_filmes, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
                 .addContainerGap(586, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btn_voltar)
+                .addGap(27, 27, 27)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -73,9 +75,9 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(grid_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 620, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 608, Short.MAX_VALUE)
                 .addComponent(btn_voltar)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
