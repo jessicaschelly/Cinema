@@ -51,6 +51,7 @@ public class InfoFilme extends javax.swing.JPanel {
             }
         });
 
+        lbl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(37, 184, 255));
         lbl_titulo.setText("jLabel1");
 

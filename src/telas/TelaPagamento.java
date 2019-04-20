@@ -6,6 +6,8 @@
 package telas;
 import entidades.Filme;
 import entidades.Sessao;
+import java.text.DateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -19,9 +21,25 @@ public class TelaPagamento extends javax.swing.JPanel {
      * Creates new form TelaPagamento
      */
     private Sessao sessao;
+    private Filme filme;
+    
+    public String dataAtual(){
+        java.util.Date d = new Date();
+        String dStr = java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(d);
+        return dStr;
+    }
     public TelaPagamento(Sessao sessao) {
         this.sessao = sessao;
+        
+     
         initComponents();
+        lbl_linguagem.setOpaque(true);
+        lbl_exibicao.setOpaque(true);
+         painelImagemFundo2.setImg(new ImageIcon(sessao.getFilme().getImage()));
+         lbl_titulo.setText(sessao.getFilme().getTitulo());
+         lbl_horario.setText(dataAtual() + "  - " + sessao.getHorario().toString());
+         lbl_exibicao.setText(sessao.getFilme().getExibicao().getName());
+         lbl_linguagem.setText(sessao.getFilme().getLinguagem().toString());
     }
 
     /**
@@ -41,8 +59,11 @@ public class TelaPagamento extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         painelImagemFundo2 = new entidades.PainelImagemFundo();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_titulo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        lbl_horario = new javax.swing.JLabel();
+        lbl_exibicao = new javax.swing.JLabel();
+        lbl_linguagem = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setForeground(new java.awt.Color(37, 184, 255));
@@ -106,7 +127,20 @@ public class TelaPagamento extends javax.swing.JPanel {
             .addGap(0, 173, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("jLabel2");
+        lbl_titulo.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        lbl_titulo.setText("jLabel2");
+
+        lbl_horario.setText("jLabel2");
+
+        lbl_exibicao.setBackground(new java.awt.Color(255, 153, 0));
+        lbl_exibicao.setForeground(new java.awt.Color(250, 250, 250));
+        lbl_exibicao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_exibicao.setText("jLabel2");
+
+        lbl_linguagem.setBackground(new java.awt.Color(255, 153, 0));
+        lbl_linguagem.setForeground(new java.awt.Color(250, 250, 250));
+        lbl_linguagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_linguagem.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,22 +148,38 @@ public class TelaPagamento extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(painelImagemFundo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_horario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lbl_linguagem, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lbl_exibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbl_titulo))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_titulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_linguagem)
+                            .addComponent(lbl_exibicao))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_horario))
                     .addComponent(painelImagemFundo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(222, Short.MAX_VALUE))
         );
@@ -155,13 +205,10 @@ public class TelaPagamento extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(89, 453, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_concluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,10 +233,13 @@ public class TelaPagamento extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lbl_exibicao;
+    private javax.swing.JLabel lbl_horario;
+    private javax.swing.JLabel lbl_linguagem;
+    private javax.swing.JLabel lbl_titulo;
     private entidades.PainelImagemFundo painelImagemFundo2;
     // End of variables declaration//GEN-END:variables
 }

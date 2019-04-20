@@ -26,31 +26,31 @@ public class InfoSessao extends javax.swing.JPanel {
      * Creates new form InfoSessao
      */
     Filme filme;
+
     public InfoSessao(Filme filme) {
-       this.filme = filme;
+        this.filme = filme;
         initComponents();
-         
-            
-          List<Sessao> sessoes = controladores.ControladorSessao.getInstance().getSessoesByFilme(filme);
-        
-         panel.add(new JLabel(filme.getExibicao().getName() + " - " + filme.getLinguagem()));
-         
-            for (Sessao sessao : sessoes) {
-                JButton jb = new JButton(sessao.getHorario().toString());
-                jb.addActionListener((ActionEvent e) -> {
-                    if (LocalTime.now().isAfter(sessao.getHorario().plusMinutes(10))) {
-                        JOptionPane.showMessageDialog(null, "Sessão começou há mais de 10 minutos atrás.");
-                        return;
-                    }
-                    if (sessao.temVaga()) {
-                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Sessão está lotada.");
-                    }
-                });
-                panel.add(jb);
-            }
-            
+
+        List<Sessao> sessoes = controladores.ControladorSessao.getInstance().getSessoesByFilme(filme);
+       
+        this.add(new JLabel(filme.getExibicao().getName() + " - " + filme.getLinguagem()));
+
+        for (Sessao sessao : sessoes) {
+            JButton jb = new JButton(sessao.getHorario().toString());
+            jb.addActionListener((ActionEvent e) -> {
+                if (LocalTime.now().isAfter(sessao.getHorario().plusMinutes(10))) {
+                    JOptionPane.showMessageDialog(null, "Sessão começou há mais de 10 minutos atrás.");
+                    return;
+                }
+                if (sessao.temVaga()) {
+                     ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sessão está lotada.");
+                }
+            });
+            this.add(jb);
+        }
+
     }
 
     /**
@@ -62,49 +62,10 @@ public class InfoSessao extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        panel = new javax.swing.JPanel();
-
-        jButton1.setText("jButton1");
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 41, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jButton1)))
-                .addGap(20, 20, 20))
-        );
+        setLayout(new java.awt.GridLayout());
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }

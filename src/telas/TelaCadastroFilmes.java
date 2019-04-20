@@ -2,10 +2,13 @@ package telas;
 
 import enums.Exibicao;
 import enums.Linguagem;
+import java.io.File;
 import java.time.format.DateTimeParseException;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.filechooser.FileSystemView;
 
 public class TelaCadastroFilmes extends javax.swing.JPanel {
 
@@ -24,9 +27,9 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         btn_salvar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        cbox_linguagem = new javax.swing.JComboBox<>();
+        cbox_linguagem = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
-        cbox_exibicao = new javax.swing.JComboBox<>();
+        cbox_exibicao = new javax.swing.JComboBox<String>();
         txt_duracao = new javax.swing.JTextField();
         txt_titulo = new javax.swing.JTextField();
         txt_genero = new javax.swing.JTextField();
@@ -42,7 +45,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txt_image = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
 
@@ -72,7 +75,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel7.setText("Exibição:");
 
         cbox_exibicao.setBackground(new java.awt.Color(250, 250, 250));
-        cbox_exibicao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3D" }));
+        cbox_exibicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3D" }));
 
         txt_duracao.setBackground(new java.awt.Color(250, 250, 250));
         txt_duracao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -119,9 +122,10 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(37, 184, 255));
         jLabel11.setText("Imagem:");
 
-        txt_image.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("selecionar arquivo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_imageActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -170,7 +174,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_image, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton1))))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -205,8 +209,8 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txt_image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(jButton1))
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -240,7 +244,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_voltar)
                     .addComponent(btn_salvar))
@@ -252,7 +256,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         String titulo = txt_titulo.getText();
         String duracao = txt_duracao.getText();
         String genero = txt_genero.getText();
-        String image = txt_image.getText();
+        String image = ArquivoSelecionado;
 
         Linguagem linguagem = Linguagem.valueOf(cbox_linguagem.getSelectedItem().toString());
         Exibicao exibicao = Exibicao.getExibicao(cbox_exibicao.getSelectedItem().toString());
@@ -278,10 +282,23 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
     }//GEN-LAST:event_btn_voltarActionPerformed
+private String ArquivoSelecionado;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-    private void txt_imageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_imageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_imageActionPerformed
+		int returnValue = jfc.showOpenDialog(null);
+		// int returnValue = jfc.showSaveDialog(null);
+
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = jfc.getSelectedFile();
+			ArquivoSelecionado = jfc.getSelectedFile().getAbsolutePath();
+		}
+                
+                
+
+	
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -289,6 +306,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
     private javax.swing.JButton btn_voltar;
     private javax.swing.JComboBox<String> cbox_exibicao;
     private javax.swing.JComboBox<String> cbox_linguagem;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -305,7 +323,6 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
     private javax.swing.JTextField txt_classificacao;
     private javax.swing.JTextField txt_duracao;
     private javax.swing.JTextField txt_genero;
-    private javax.swing.JTextField txt_image;
     private javax.swing.JTextArea txt_sinopse;
     private javax.swing.JTextField txt_titulo;
     // End of variables declaration//GEN-END:variables
