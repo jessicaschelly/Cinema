@@ -24,7 +24,7 @@ public class MyButton extends JButton{
         this.setForeground(colorLegal);
         this.setPreferredSize(new Dimension(170, 60));;
         this.setBorder(new LineBorder(colorLegal, 2));
-        this.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 22)); 
+        this.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16)); 
     }
     
     private Color colorLegal = new Color(37, 184, 255);

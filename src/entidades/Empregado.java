@@ -9,31 +9,18 @@ package entidades;
  *
  * @author jsouza
  */
-public class Gerente extends Empregado{
+public class Empregado {
     String nome;
-    String ID;
-
-    public Gerente(String nome, String ID) {
-        super(nome);
-        this.ID = ID;
+    
+    public Empregado(String nome){
+        this.nome = nome;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getID() {
-        return ID;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
 }
-
-

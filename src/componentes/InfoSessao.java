@@ -44,13 +44,13 @@ public class InfoSessao extends javax.swing.JPanel {
                 
                 
        JLabel l = new JLabel(filme.getExibicao().getName() + " - " + filme.getLinguagem().name() + ": ");
-       l.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
+       l.setFont(new Font(Font.SERIF, Font.PLAIN, 16));
        l.setForeground(Color.white);
         this.add(l);
         
         if (sessoes.size() == 0){
-            l = new JLabel("Este filme não está disponível");
-       l.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
+            l = new JLabel("Este filme não tem sessões disponíveis!");
+       l.setFont(new Font(Font.SERIF, Font.BOLD, 16));
        l.setForeground(Color.white);
         this.add(l);
         }
