@@ -1,12 +1,12 @@
 package entidades;
 
-public class Funcionario {
+public class Funcionario extends Empregado {
 
     String nome;
     String ID;
 
     public Funcionario(String nome, String ID) {
-        this.nome = nome;
+        super(nome);
         this.ID = ID;
     }
 

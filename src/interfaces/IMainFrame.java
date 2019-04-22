@@ -1,5 +1,6 @@
 package interfaces;
 
+import entidades.Filme;
 import entidades.Funcionario;
 import entidades.Sessao;
 
@@ -19,10 +20,10 @@ public interface IMainFrame {
 
     void exibeTelaCadastroSessoes();
 
-    void exibeTelaConfirmacaoIngresso(Sessao sessao);
+    void exibeTelaConfirmacaoIngresso(Filme filme);
     
     void exibeTelaSelecaoFilme();
     
-    void exibeTelaPagamento();
+    void exibeTelaPagamento(Sessao sessao);
 
 }

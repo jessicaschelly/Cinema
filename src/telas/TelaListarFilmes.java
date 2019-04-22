@@ -1,6 +1,7 @@
 package telas;
 
 import controladores.ControladorFilme;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class TelaListarFilmes extends javax.swing.JPanel {
@@ -9,6 +10,12 @@ public class TelaListarFilmes extends javax.swing.JPanel {
         initComponents();
 
         list_filmes.setListData(ControladorFilme.getInstance().nomesFilmesEDescricao());
+        refresh();
+    }
+    
+     public void refresh(){
+        list_filmes.setListData(ControladorFilme.getInstance().nomesFilmesEDescricao());
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -16,7 +23,7 @@ public class TelaListarFilmes extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        list_filmes = new javax.swing.JList<>();
+        list_filmes = new javax.swing.JList<String>();
         jLabel1 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
         btn_remover_filme = new javax.swing.JButton();
@@ -41,6 +48,11 @@ public class TelaListarFilmes extends javax.swing.JPanel {
         });
 
         btn_remover_filme.setText("Remover");
+        btn_remover_filme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_remover_filmeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,6 +92,17 @@ public class TelaListarFilmes extends javax.swing.JPanel {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void btn_remover_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remover_filmeActionPerformed
+       int dialogButton = JOptionPane.YES_NO_OPTION;
+       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja excluir este filme?","Warning",dialogButton);
+       if(dialogResult == JOptionPane.YES_OPTION){ 
+       ControladorFilme.getInstance().filmes.remove(list_filmes.getSelectedIndex());
+       }else{
+          ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaFilmes(); 
+       }
+       refresh();
+    }//GEN-LAST:event_btn_remover_filmeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

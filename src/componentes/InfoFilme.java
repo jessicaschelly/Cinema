@@ -28,14 +28,8 @@ public class InfoFilme extends javax.swing.JPanel {
         this.filme = filme;
         this.lbl_titulo.setText(filme.getTitulo());
         this.btn_filme.setIcon(new ImageIcon(filme.getImage()));
-        this.btn_filme.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "");
-            }
-        });
         }
-    
+                
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +51,7 @@ public class InfoFilme extends javax.swing.JPanel {
             }
         });
 
+        lbl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(37, 184, 255));
         lbl_titulo.setText("jLabel1");
 
@@ -68,7 +63,7 @@ public class InfoFilme extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_filme, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_filme, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,7 +78,7 @@ public class InfoFilme extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filmeActionPerformed
-     ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCompraDeIngressos();
+     ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaConfirmacaoIngresso(filme);
     }//GEN-LAST:event_btn_filmeActionPerformed
 
 

@@ -8,9 +8,14 @@ package telas;
 import componentes.InfoFilme;
 import controladores.ControladorFilme;
 import entidades.Filme;
+import java.awt.Color;
+import static java.awt.Color.*;
+
 import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /**
  *
@@ -23,9 +28,15 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
      */
         Component frame = null;
         Filme filme;
+        
     public TelaSelecaoFilme() {
         initComponents();
-        
+        jScrollPane1.setBorder(null);
+        grid_filmes.setBorder(null);
+       
+
+        jScrollPane1.getHorizontalScrollBar().setBackground(Color.gray);
+        jScrollPane1.getHorizontalScrollBar().setForeground(Color.gray);
          for(Filme filme : ControladorFilme.getInstance().filmes ){
             grid_filmes.add(new InfoFilme(filme));
         }
@@ -41,13 +52,15 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grid_filmes = new javax.swing.JPanel();
         btn_voltar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        grid_filmes = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(51, 51, 51));
 
-        grid_filmes.setLayout(new java.awt.GridLayout(1, 0));
-
+        btn_voltar.setBackground(new java.awt.Color(95, 0, 0));
+        btn_voltar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btn_voltar.setForeground(new java.awt.Color(250, 250, 250));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,27 +68,28 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
             }
         });
 
+        grid_filmes.setLayout(new java.awt.GridLayout());
+        jScrollPane1.setViewportView(grid_filmes);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(grid_filmes, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
-                .addContainerGap(586, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btn_voltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(grid_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 620, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(btn_voltar)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -87,5 +101,6 @@ public class TelaSelecaoFilme extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_voltar;
     private javax.swing.JPanel grid_filmes;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
