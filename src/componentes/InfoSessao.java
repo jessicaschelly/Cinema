@@ -7,12 +7,16 @@ package componentes;
 
 import entidades.Filme;
 import entidades.Sessao;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.time.LocalTime;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import telas.MainFrame;
 
@@ -25,32 +29,48 @@ public class InfoSessao extends javax.swing.JPanel {
     /**
      * Creates new form InfoSessao
      */
-    Filme filme;
+    private Filme filme;
 
     public InfoSessao(Filme filme) {
         this.filme = filme;
         initComponents();
+        this.setOpaque(false);
+
+        
+         this.setBackground(new Color(0,0,0,0));
 
         List<Sessao> sessoes = controladores.ControladorSessao.getInstance().getSessoesByFilme(filme);
-       
-        this.add(new JLabel(filme.getExibicao().getName() + " - " + filme.getLinguagem()));
-
+        
+                
+                
+       JLabel l = new JLabel(filme.getExibicao().getName() + " - " + filme.getLinguagem().name() + ": ");
+       l.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
+       l.setForeground(Color.white);
+        this.add(l);
+        
+        if (sessoes.size() == 0){
+            l = new JLabel("Este filme não está disponível");
+       l.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
+       l.setForeground(Color.white);
+        this.add(l);
+        }
+        
         for (Sessao sessao : sessoes) {
-            JButton jb = new JButton(sessao.getHorario().toString());
+            MyButton jb = new MyButton(sessao.getHorario().toString());
             jb.addActionListener((ActionEvent e) -> {
                 if (LocalTime.now().isAfter(sessao.getHorario().plusMinutes(10))) {
-                    JOptionPane.showMessageDialog(null, "Sessão começou há mais de 10 minutos atrás.");
+                    JOptionPane.showMessageDialog(SwingUtilities.getWindowAncestor(this), "Sessão começou há mais de 10 minutos atrás.");
                     return;
                 }
-                if (sessao.temVaga()) {
+                else if (sessao.temVaga()) {
                      ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Sessão está lotada.");
+                    JOptionPane.showMessageDialog( null, "Sessão está lotada.");
                 }
             });
             this.add(jb);
         }
-
+     
     }
 
     /**
@@ -62,7 +82,7 @@ public class InfoSessao extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 10));
     }// </editor-fold>//GEN-END:initComponents
 
 
