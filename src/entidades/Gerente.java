@@ -15,6 +15,7 @@ public class Gerente extends Empregado{
 
     public Gerente(String nome, String ID) {
         super(nome);
+        this.nome = nome;
         this.ID = ID;
     }
 

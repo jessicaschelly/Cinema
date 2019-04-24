@@ -7,6 +7,7 @@ public class Funcionario extends Empregado {
 
     public Funcionario(String nome, String ID) {
         super(nome);
+        this.nome = nome;
         this.ID = ID;
     }
 

@@ -12,8 +12,6 @@ public interface IMainFrame {
 
     void exibeTelaFuncionario();
 
-    void exibeTelaCompraDeIngressos();
-
     void exibeTelaCadastroFilmes();
 
     void exibeTelaListaFilmes();

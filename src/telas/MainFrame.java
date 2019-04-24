@@ -82,14 +82,6 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-
-    public void exibeTelaCompraDeIngressos() {
-        TelaCompraDeIngressos ci = new TelaCompraDeIngressos();
-        setContentPane(ci);
-
-        validate();
-    }
-
     public void exibeTelaCadastroFilmes() {
         TelaCadastroFilmes ci = new TelaCadastroFilmes();
         setContentPane(ci);

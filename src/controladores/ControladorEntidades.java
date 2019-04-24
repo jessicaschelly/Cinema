@@ -54,10 +54,6 @@ public class ControladorEntidades extends Controlador {
             Filme filme4 = ControladorFilme.getInstance().cadastra("Clube da Luta", "02:29", "Drama", "Um homem deprimido que sofre de insônia conhece um estranho vendedor chamado Tyler Durden e se vê morando em uma casa suja depois que seu perfeito apartamento é destruído. A dupla forma um clube com regras rígidas onde homens lutam. A parceria perfeita é comprometida quando uma mulher, Marla, atrai a atenção de Tyler.",
                     Linguagem.LEGENDADO, Exibicao.DUASDIMENSOES, "16", "resources/clubedaluta.jpg");
             
-            ControladorSessao.getInstance().cadastra(salas.get(0), "00:00", filme1);
-            ControladorSessao.getInstance().cadastra(salas.get(0), "03:00", filme1);
-            ControladorSessao.getInstance().cadastra(salas.get(0), "06:00", filme1);
-            ControladorSessao.getInstance().cadastra(salas.get(0), "09:00", filme1);
             ControladorSessao.getInstance().cadastra(salas.get(0), "20:00", filme1);
             ControladorSessao.getInstance().cadastra(salas.get(1), "21:00", filme2);
             ControladorSessao.getInstance().cadastra(salas.get(1), "22:30", filme3);
