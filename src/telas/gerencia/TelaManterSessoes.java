@@ -132,7 +132,7 @@ public class TelaManterSessoes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_adicionar_sessoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionar_sessoesActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroSessoes();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroSessoes(null);
     }//GEN-LAST:event_btn_adicionar_sessoesActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
