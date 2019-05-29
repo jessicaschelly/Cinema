@@ -28,17 +28,39 @@ public class ControladorFilme extends Controlador {
         verificaCampoVazio(sinopse, "Sinopse");
         verificaCampoVazio(image, "Imagem");
 
-
         Duration duracaoTime = Duration.between(LocalTime.MIN, LocalTime.parse(duracao));
 
         if (getFilmeByTitulo(titulo) != null) {
             throw new CadastroRepetidoException("Erro: Filme com titulo '" + titulo + "' já cadastrado.");
         }
-         
+
         Filme filme = new Filme(titulo, duracaoTime, genero, sinopse, classificacao, image);
-        
+
         filmes.add(filme);
         return filme;
+    }
+
+    public Filme edita(String titulo, String duracao, String genero, String sinopse, Classificacao classificacao, String image, Filme filmeAntigo) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException {
+        verificaCampoVazio(titulo, "Titulo");
+        verificaCampoVazio(duracao, "Duração");
+        verificaCampoVazio(genero, "Gênero");
+        verificaCampoVazio(sinopse, "Sinopse");
+        verificaCampoVazio(image, "Imagem");
+
+        Duration duracaoTime = Duration.between(LocalTime.MIN, LocalTime.parse(duracao));
+        
+        if (!titulo.equals(filmeAntigo.getTitulo()) && getFilmeByTitulo(titulo) != null){
+            throw new CadastroRepetidoException("Erro: Filme com titulo '" + titulo + "' já cadastrado.");
+        }
+        
+        filmeAntigo.setClassificacao(classificacao);
+        filmeAntigo.setDuracao(duracaoTime);
+        filmeAntigo.setImage(image);
+        filmeAntigo.setGenero(genero);
+        filmeAntigo.setSinopse(sinopse);
+        filmeAntigo.setTitulo(titulo);
+        
+        return filmeAntigo;
     }
 
     public Filme getFilmeByTitulo(String titulo) {
@@ -51,15 +73,14 @@ public class ControladorFilme extends Controlador {
         List<String> names = filmes.stream().map(x -> x.getTitulo()).collect(Collectors.toList());
         return names.toArray(new String[0]);
     }
-    
-       public String[] nomesFilmesEDescricao() {
-        List<String> names = filmes.stream().map(x -> x.getTitulo() + " - " +x.getSinopse()).collect(Collectors.toList());
+
+    public String[] nomesFilmesEDescricao() {
+        List<String> names = filmes.stream().map(x -> x.getTitulo() + " - " + x.getSinopse()).collect(Collectors.toList());
         return names.toArray(new String[0]);
     }
-     
-       
-       public void remove(Filme filme) {
-           filmes.remove(filme);
-       }
+
+    public void remove(Filme filme) {
+        filmes.remove(filme);
+    }
 
 }

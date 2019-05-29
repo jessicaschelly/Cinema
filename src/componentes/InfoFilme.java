@@ -78,7 +78,7 @@ public class InfoFilme extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filmeActionPerformed
-     ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaConfirmacaoIngresso(filme);
+     ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaSelecaoSessao(filme);
     }//GEN-LAST:event_btn_filmeActionPerformed
 
 

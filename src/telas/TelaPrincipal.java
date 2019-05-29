@@ -9,9 +9,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
     TelaPrincipal() {
         initComponents();
-      
-     
-       
+
     }
 
     @SuppressWarnings("unchecked")
@@ -22,6 +20,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
         btn_acesso_funcionario = new javax.swing.JButton();
         lbl_guiche = new javax.swing.JLabel();
         btn_acesso_gerencia = new javax.swing.JButton();
+        btn_bomboniere = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -63,6 +62,13 @@ public class TelaPrincipal extends javax.swing.JPanel {
             }
         });
 
+        btn_bomboniere.setText("Bomboniere");
+        btn_bomboniere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_bomboniereActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,14 +79,16 @@ public class TelaPrincipal extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_acesso_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 205, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(205, 205, 205))
             .addGroup(layout.createSequentialGroup()
                 .addGap(422, 422, 422)
                 .addComponent(lbl_guiche, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_bomboniere, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,8 +96,10 @@ public class TelaPrincipal extends javax.swing.JPanel {
                 .addGap(85, 85, 85)
                 .addComponent(lbl_guiche)
                 .addGap(111, 111, 111)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 211, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(btn_bomboniere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 61, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -125,10 +135,15 @@ public class TelaPrincipal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btn_acesso_gerenciaActionPerformed
 
+    private void btn_bomboniereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bomboniereActionPerformed
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(null);
+    }//GEN-LAST:event_btn_bomboniereActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_acesso_funcionario;
     private javax.swing.JButton btn_acesso_gerencia;
+    private javax.swing.JButton btn_bomboniere;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbl_guiche;
     // End of variables declaration//GEN-END:variables

@@ -13,13 +13,13 @@ public interface IMainFrame {
 
     void exibeTelaFuncionario();
 
-    void exibeTelaCadastroFilmes();
+    void exibeTelaCadastroFilmes(Filme filme);
 
     void exibeTelaListaFilmes();
 
-    void exibeTelaCadastroSessoes();
+    void exibeTelaCadastroSessoes(Sessao sessao);
 
-    void exibeTelaConfirmacaoIngresso(Filme filme);
+    void exibeTelaSelecaoSessao(Filme filme);
     
     void exibeTelaSelecaoFilme();
     

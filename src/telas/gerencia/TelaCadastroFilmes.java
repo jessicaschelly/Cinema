@@ -1,5 +1,6 @@
 package telas.gerencia;
 
+import entidades.Filme;
 import enums.Classificacao;
 import enums.Exibicao;
 import enums.Linguagem;
@@ -11,13 +12,32 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileSystemView;
 import telas.MainFrame;
+import telas.TelaSelecaoSessao;
 
 public class TelaCadastroFilmes extends javax.swing.JPanel {
 
-    public TelaCadastroFilmes() {
-        initComponents();
+    private final Filme filme;
 
+    public TelaCadastroFilmes(Filme filme) {
+        initComponents();
         cbox_classificacao.setModel(new DefaultComboBoxModel(Classificacao.valuesNormais()));
+
+        this.filme = filme;
+        if (filme != null) {
+            lbl_titulo_formulario.setText("Editar Filme");
+            ArquivoSelecionado = filme.getImage();
+            txt_duracao.setText(TelaSelecaoSessao.formatDuration(filme.getDuracao()));
+            txt_genero.setText(filme.getGenero());
+            txt_sinopse.setText(filme.getSinopse());
+            txt_titulo.setText(filme.getTitulo());
+            cbox_classificacao.setSelectedItem(filme.getClassificacao().getName());
+            if (ArquivoSelecionado != null){
+                jButton1.setText("Alterar imagem");
+            }
+        } else {
+            lbl_titulo_formulario.setText("Cadastrar Filme");
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -26,7 +46,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
 
         btn_voltar = new javax.swing.JButton();
         btn_salvar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        lbl_titulo_formulario = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txt_duracao = new javax.swing.JTextField();
         txt_titulo = new javax.swing.JTextField();
@@ -59,9 +79,9 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel8.setText("Cadastro de filmes");
+        lbl_titulo_formulario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_titulo_formulario.setForeground(new java.awt.Color(37, 184, 255));
+        lbl_titulo_formulario.setText("Cadastro de filmes");
 
         jPanel1.setBackground(new java.awt.Color(76, 76, 76));
 
@@ -96,12 +116,12 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel4.setText("Gênero: ");
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("(HH:mm)");
+        jLabel10.setText("(HH:mm:ss)");
 
         jLabel11.setForeground(new java.awt.Color(37, 184, 255));
         jLabel11.setText("Imagem:");
 
-        jButton1.setText("selecionar arquivo");
+        jButton1.setText("Selecionar imagem");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -134,7 +154,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -192,7 +212,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addContainerGap(312, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addComponent(lbl_titulo_formulario)
                         .addGap(360, 360, 360))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +222,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabel8)
+                .addComponent(lbl_titulo_formulario)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
@@ -221,42 +241,50 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
 
         Classificacao classificacao = Classificacao.getClassificacao(cbox_classificacao.getSelectedItem().toString());
         String sinopse = txt_sinopse.getText();
-        
 
         try {
-            controladores.ControladorFilme.getInstance().cadastra(titulo, duracao, genero, sinopse, classificacao, image);
-            JOptionPane.showMessageDialog(null, "Filme cadastrado com sucesso!");
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
-            
+            if (filme != null) {
+                controladores.ControladorFilme.getInstance().edita(titulo, duracao, genero, sinopse, classificacao, image, filme);
+                JOptionPane.showMessageDialog(null, "Filme editado com sucesso!");
+                ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaFilmes();
+            } else {
+                controladores.ControladorFilme.getInstance().cadastra(titulo, duracao, genero, sinopse, classificacao, image);
+                JOptionPane.showMessageDialog(null, "Filme cadastrado com sucesso!");
+                ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+            }
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Erro, insira uma classificação válida.");
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(null, "Duração em formato incorreto");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
-            
+
         }
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaManterFilmes();
+        if (filme != null) {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaFilmes();
+        } else {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaManterFilmes();
+        }
+
     }//GEN-LAST:event_btn_voltarActionPerformed
-private String ArquivoSelecionado;
+    private String ArquivoSelecionado;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-		int returnValue = jfc.showOpenDialog(null);
-		// int returnValue = jfc.showSaveDialog(null);
+        int returnValue = jfc.showOpenDialog(null);
+        // int returnValue = jfc.showSaveDialog(null);
 
-		if (returnValue == JFileChooser.APPROVE_OPTION) {
-			File selectedFile = jfc.getSelectedFile();
-			ArquivoSelecionado = jfc.getSelectedFile().getAbsolutePath();
-		}
-                
-                
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jfc.getSelectedFile();
+            ArquivoSelecionado = jfc.getSelectedFile().getAbsolutePath();
+            jButton1.setText("Alterar imagem");
+        }
 
-	
-      
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -272,9 +300,9 @@ private String ArquivoSelecionado;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_titulo_formulario;
     private javax.swing.JTextField txt_duracao;
     private javax.swing.JTextField txt_genero;
     private javax.swing.JTextArea txt_sinopse;

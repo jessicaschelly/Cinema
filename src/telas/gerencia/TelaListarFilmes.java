@@ -1,6 +1,7 @@
 package telas.gerencia;
 
 import controladores.ControladorFilme;
+import entidades.Filme;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import telas.MainFrame;
@@ -13,10 +14,10 @@ public class TelaListarFilmes extends javax.swing.JPanel {
         list_filmes.setListData(ControladorFilme.getInstance().nomesFilmes());
         refresh();
     }
-    
-     public void refresh(){
+
+    public void refresh() {
         list_filmes.setListData(ControladorFilme.getInstance().nomesFilmes());
-       
+
     }
 
     @SuppressWarnings("unchecked")
@@ -28,6 +29,7 @@ public class TelaListarFilmes extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
         btn_remover_filme = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(55, 55, 55));
         setAlignmentY(1.0F);
@@ -55,6 +57,13 @@ public class TelaListarFilmes extends javax.swing.JPanel {
             }
         });
 
+        btn_editar.setText("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,7 +75,11 @@ public class TelaListarFilmes extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 271, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_remover_filme)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_remover_filme)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_editar)
+                        .addContainerGap())
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(btn_voltar)
@@ -83,7 +96,9 @@ public class TelaListarFilmes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_remover_filme)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_remover_filme)
+                    .addComponent(btn_editar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(btn_voltar)
                 .addContainerGap())
@@ -95,18 +110,25 @@ public class TelaListarFilmes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_remover_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remover_filmeActionPerformed
-       int dialogButton = JOptionPane.YES_NO_OPTION;
-       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja remover este filme?","Warning",dialogButton);
-       if(dialogResult == JOptionPane.YES_OPTION){ 
-       ControladorFilme.getInstance().filmes.remove(list_filmes.getSelectedIndex());
-       }else{
-          ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaFilmes(); 
-       }
-       refresh();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este filme?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            ControladorFilme.getInstance().filmes.remove(list_filmes.getSelectedIndex());
+        } else {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaFilmes();
+        }
+        refresh();
     }//GEN-LAST:event_btn_remover_filmeActionPerformed
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        Filme filme = ControladorFilme.getInstance().filmes.get(list_filmes.getSelectedIndex());
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroFilmes(filme);
+
+    }//GEN-LAST:event_btn_editarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_editar;
     private javax.swing.JButton btn_remover_filme;
     private javax.swing.JButton btn_voltar;
     private javax.swing.JLabel jLabel1;

@@ -133,7 +133,7 @@ public class TelaManterFilmes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_listar_filmesActionPerformed
 
     private void btn_adicionar_filmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionar_filmesActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroFilmes();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroFilmes(null);
     }//GEN-LAST:event_btn_adicionar_filmesActionPerformed
 
 

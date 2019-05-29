@@ -5,6 +5,7 @@ import entidades.Sala;
 import controladores.ControladorFilme;
 import controladores.ControladorSessao;
 import controladores.ControladorEntidades;
+import entidades.Sessao;
 import enums.Classificacao;
 import enums.Exibicao;
 import enums.Linguagem;
@@ -13,11 +14,15 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import telas.MainFrame;
+import telas.TelaSelecaoSessao;
 
 public class TelaCadastroSessoes extends javax.swing.JPanel {
 
-    public TelaCadastroSessoes() {
+    private final Sessao sessao;
+
+    public TelaCadastroSessoes(Sessao sessao) {
         initComponents();
+        this.sessao = sessao;
 
         for (Sala sala : ControladorEntidades.getInstance().salas) {
             cbox_sala.addItem(sala);
@@ -26,13 +31,23 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
         cbox_filme.setModel(new DefaultComboBoxModel<>(ControladorFilme.getInstance().nomesFilmes()));
         cbox_linguagem.setModel(new DefaultComboBoxModel(Linguagem.values()));
         cbox_exibicao.setModel(new DefaultComboBoxModel(Exibicao.valuesNormais()));
+
+        if (sessao != null) {
+            txt_horario.setText(TelaSelecaoSessao.formatLocalTimeHourMinute(sessao.getHorario()));
+            txt_horario.setEditable(false);
+            cbox_sala.setSelectedItem(sessao.getSala());
+            cbox_filme.setSelectedItem(sessao.getFilme().getTitulo());
+            cbox_filme.setEnabled(false);
+            cbox_linguagem.setSelectedItem(sessao.getLinguagem().name());
+            cbox_exibicao.setSelectedItem(sessao.getExibicao().getName());
+        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel5 = new javax.swing.JLabel();
+        lbl_titulo_formulario = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
         btn_salvar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -50,10 +65,10 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(55, 55, 55));
 
-        jLabel5.setBackground(new java.awt.Color(37, 184, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel5.setText("Cadastro de sessão");
+        lbl_titulo_formulario.setBackground(new java.awt.Color(37, 184, 255));
+        lbl_titulo_formulario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_titulo_formulario.setForeground(new java.awt.Color(37, 184, 255));
+        lbl_titulo_formulario.setText("Cadastro de sessão");
 
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +189,7 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
                 .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
                 .addGap(387, 387, 387)
-                .addComponent(jLabel5)
+                .addComponent(lbl_titulo_formulario)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(364, 364, 364)
@@ -185,7 +200,7 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(86, 86, 86)
-                .addComponent(jLabel5)
+                .addComponent(lbl_titulo_formulario)
                 .addGap(50, 50, 50)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
@@ -206,9 +221,16 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
         Exibicao exibicao = Exibicao.getExibicao(cbox_exibicao.getSelectedItem().toString());
 
         try {
-            ControladorSessao.getInstance().cadastra(sala, horario, filme, exibicao, linguagem);
-            JOptionPane.showMessageDialog(null, "Sessao cadastrada com sucesso!");
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+            if (sessao != null) {
+                ControladorSessao.getInstance().editar(sala, exibicao, linguagem, sessao);
+                JOptionPane.showMessageDialog(null, "Sessao alterada com sucesso!");
+                ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaSessoes();
+            } else {
+                ControladorSessao.getInstance().cadastra(sala, horario, filme, exibicao, linguagem);
+                JOptionPane.showMessageDialog(null, "Sessao cadastrada com sucesso!");
+                ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+            }
+
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(null, "Horário em formato incorreto");
         } catch (Exception ex) {
@@ -217,7 +239,12 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+        if (sessao != null) {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaSessoes();
+        }else{
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+        }
+        
     }//GEN-LAST:event_btn_voltarActionPerformed
 
 
@@ -232,10 +259,10 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_titulo_formulario;
     private javax.swing.JTextField txt_horario;
     // End of variables declaration//GEN-END:variables
 }

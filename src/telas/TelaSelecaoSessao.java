@@ -13,6 +13,9 @@ import java.time.Duration;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import java.awt.*;
+import java.time.LocalTime;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalField;
 
 import java.util.*;
 import javax.swing.ImageIcon;
@@ -26,10 +29,30 @@ public class TelaSelecaoSessao extends javax.swing.JPanel {
         long seconds = duration.getSeconds();
         long absSeconds = Math.abs(seconds);
         String positive = String.format(
-                "%d:%02d:%02d",
+                "%02d:%02d:%02d",
                 absSeconds / 3600,
                 (absSeconds % 3600) / 60,
                 absSeconds % 60);
+        return seconds < 0 ? "-" + positive : positive;
+    }
+    
+    public static String formatLocalTimeHourMinute(LocalTime time){
+        long seconds = time.get(ChronoField.SECOND_OF_DAY);
+        long absSeconds = Math.abs(seconds);
+        String positive = String.format(
+                "%02d:%02d",
+                absSeconds / 3600,
+                (absSeconds % 3600) / 60);
+        return seconds < 0 ? "-" + positive : positive;
+    }
+    
+    public static String formatDurationHourMinute(Duration duration) {
+        long seconds = duration.getSeconds();
+        long absSeconds = Math.abs(seconds);
+        String positive = String.format(
+                "%02d:%02d",
+                absSeconds / 3600,
+                (absSeconds % 3600) / 60);
         return seconds < 0 ? "-" + positive : positive;
     }
 

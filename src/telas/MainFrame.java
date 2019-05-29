@@ -94,8 +94,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-    public void exibeTelaCadastroFilmes() {
-        TelaCadastroFilmes ci = new TelaCadastroFilmes();
+    public void exibeTelaCadastroFilmes(Filme filme) {
+        TelaCadastroFilmes ci = new TelaCadastroFilmes(filme);
         setContentPane(ci);
 
         validate();
@@ -115,14 +115,14 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-    public void exibeTelaCadastroSessoes() {
-        TelaCadastroSessoes tf = new TelaCadastroSessoes();
+    public void exibeTelaCadastroSessoes(Sessao sessao ) {
+        TelaCadastroSessoes tf = new TelaCadastroSessoes(sessao );
         setContentPane(tf);
 
         validate();
     }
 
-    public void exibeTelaConfirmacaoIngresso(Filme filme) {
+    public void exibeTelaSelecaoSessao(Filme filme) {
         TelaSelecaoSessao tf = new TelaSelecaoSessao(filme);
         setContentPane(tf);
         validate();

@@ -37,6 +37,16 @@ public class ControladorSessao extends Controlador {
         sessoes.add(sessao);
         return sessao;
     }
+    
+    public void editar(Sala sala, Exibicao exibicao, Linguagem linguagem, Sessao sessaoAntiga) throws Exception {
+        Sessao teste = new Sessao(sala, sessaoAntiga.getHorario(), sessaoAntiga.getFilme(), exibicao, linguagem);
+        if (!podeCadastrarSessao(teste)) {
+            throw new Exception("Erro ao alterar sessão, horário conflita com outra sessão na mesma sala.");
+        }
+        sessaoAntiga.setSala(sala);
+        sessaoAntiga.setExibicao(exibicao);
+        sessaoAntiga.setLinguagem(linguagem);
+    }
 
     private boolean podeCadastrarSessao(Sessao newSessao) {
         for (Sessao sessao : sessoes) {
@@ -71,6 +81,8 @@ public class ControladorSessao extends Controlador {
     public void remove(Sessao sessao) {
            sessoes.remove(sessao);
        }
+
+    
        
     
 }

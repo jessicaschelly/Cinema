@@ -7,6 +7,7 @@ package telas.gerencia;
 
 import controladores.ControladorFilme;
 import controladores.ControladorSessao;
+import entidades.Sessao;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import telas.MainFrame;
@@ -22,11 +23,12 @@ public class TelaListarSessoes extends javax.swing.JPanel {
      */
     public TelaListarSessoes() {
         initComponents();
-         list_sessoes.setListData(ControladorSessao.getInstance().dadosSessao());
-    }
-        public void refresh(){
         list_sessoes.setListData(ControladorSessao.getInstance().dadosSessao());
-       
+    }
+
+    public void refresh() {
+        list_sessoes.setListData(ControladorSessao.getInstance().dadosSessao());
+
     }
 
     /**
@@ -44,6 +46,7 @@ public class TelaListarSessoes extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
         remover_sessao = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(55, 55, 55));
         jPanel1.setAlignmentY(1.0F);
@@ -77,6 +80,13 @@ public class TelaListarSessoes extends javax.swing.JPanel {
             }
         });
 
+        btn_editar.setText("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +102,10 @@ public class TelaListarSessoes extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(239, 239, 239)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(remover_sessao)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(remover_sessao)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_editar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 288, Short.MAX_VALUE))
         );
@@ -104,7 +117,9 @@ public class TelaListarSessoes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(remover_sessao)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(remover_sessao)
+                    .addComponent(btn_editar))
                 .addGap(53, 53, 53)
                 .addComponent(btn_voltar)
                 .addContainerGap())
@@ -127,23 +142,30 @@ public class TelaListarSessoes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void remover_sessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_sessaoActionPerformed
-     int dialogButton = JOptionPane.YES_NO_OPTION;
-       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja remover esta sessão?","Warning",dialogButton);
-       if(dialogResult == JOptionPane.YES_OPTION){ 
-       ControladorSessao.getInstance().sessoes.remove(list_sessoes.getSelectedIndex());
-       }else{
-          ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaSessoes(); 
-       }
-       refresh();
-    
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover esta sessão?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            ControladorSessao.getInstance().sessoes.remove(list_sessoes.getSelectedIndex());
+        } else {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaSessoes();
+        }
+        refresh();
+
     }//GEN-LAST:event_remover_sessaoActionPerformed
 
     private void list_sessoesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_list_sessoesKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_list_sessoesKeyPressed
 
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        Sessao sessao = ControladorSessao.getInstance().sessoes.get(list_sessoes.getSelectedIndex());
+
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroSessoes(sessao);
+    }//GEN-LAST:event_btn_editarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_editar;
     private javax.swing.JButton btn_voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

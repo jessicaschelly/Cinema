@@ -6,11 +6,14 @@
 package componentes;
 
 import entidades.Produto;
+import entidades.Sessao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import telas.MainFrame;
 
 /**
  *
@@ -21,9 +24,12 @@ public class InfoProduto extends javax.swing.JPanel {
     /**
      * Creates new form InfoProduto
      */
-    Produto produto;
-    public InfoProduto(Produto produto) {
+    private final Produto produto;
+    private final Sessao sessao;
+    
+    public InfoProduto(Produto produto, Sessao sessao) {
         initComponents();
+        this.sessao = sessao;
         this.produto = produto;
         this.lbl_preco.setText("R$: " + produto.getPrecoString());
         this.lbl_nomeProduto.setText(produto.getNome());
@@ -114,7 +120,7 @@ public class InfoProduto extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_produtoActionPerformed
 
     private void btn_maisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_maisActionPerformed
-      JOptionPane.showMessageDialog(null, "Combo adquirido!");
+         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao, produto);
     }//GEN-LAST:event_btn_maisActionPerformed
 
 

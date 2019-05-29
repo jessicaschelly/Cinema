@@ -27,11 +27,9 @@ public class TelaBombonier extends javax.swing.JPanel {
     /**
      * Creates new form TelaCompra
      */
-   
-      Component frame = null;
-  
-    
-        private final Sessao sessao;
+    Component frame = null;
+
+    private final Sessao sessao;
 
     /**
      * Creates new form TelaBombonier
@@ -44,12 +42,20 @@ public class TelaBombonier extends javax.swing.JPanel {
         produtos.add(new Produto("Pipoca 'n' cream", "1", 10, "resources/pipoca-cream.png"));
 
         for (Produto produto : produtos) {
-            jPanel1.add(new InfoProduto(produto));
+            jPanel1.add(new InfoProduto(produto, sessao));
+        }
+
+        if (sessao != null) {
+            btn_voltar_continuar.setText("Continuar");
+        }else{
+            btn_voltar_continuar.setText("Voltar");
         }
 
     }
-    public void mensagem(){
-    }  
+
+    public void mensagem() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,37 +65,17 @@ public class TelaBombonier extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_adicionar_cod = new javax.swing.JButton();
-        btn_voltar = new javax.swing.JButton();
-        btn_carrinho = new javax.swing.JButton();
+        btn_voltar_continuar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(250, 250, 250));
 
-        btn_adicionar_cod.setBackground(new java.awt.Color(157, 114, 29));
-        btn_adicionar_cod.setForeground(new java.awt.Color(250, 250, 250));
-        btn_adicionar_cod.setText("Adicionar produto no carrinho");
-        btn_adicionar_cod.addActionListener(new java.awt.event.ActionListener() {
+        btn_voltar_continuar.setBackground(new java.awt.Color(52, 163, 55));
+        btn_voltar_continuar.setForeground(new java.awt.Color(250, 250, 250));
+        btn_voltar_continuar.setText("voltar / continuar");
+        btn_voltar_continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_adicionar_codActionPerformed(evt);
-            }
-        });
-
-        btn_voltar.setBackground(new java.awt.Color(95, 0, 0));
-        btn_voltar.setForeground(new java.awt.Color(250, 250, 250));
-        btn_voltar.setText("Cancelar Compra");
-        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_voltarActionPerformed(evt);
-            }
-        });
-
-        btn_carrinho.setBackground(new java.awt.Color(52, 163, 55));
-        btn_carrinho.setForeground(new java.awt.Color(250, 250, 250));
-        btn_carrinho.setText("Carrinho");
-        btn_carrinho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_carrinhoActionPerformed(evt);
+                btn_voltar_continuarActionPerformed(evt);
             }
         });
 
@@ -101,17 +87,13 @@ public class TelaBombonier extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(btn_voltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 480, Short.MAX_VALUE)
-                .addComponent(btn_adicionar_cod)
-                .addGap(18, 18, 18)
-                .addComponent(btn_carrinho)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_voltar_continuar)
                 .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,33 +101,24 @@ public class TelaBombonier extends javax.swing.JPanel {
                 .addGap(42, 42, 42)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_voltar)
-                    .addComponent(btn_adicionar_cod)
-                    .addComponent(btn_carrinho))
+                .addComponent(btn_voltar_continuar)
                 .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("painel");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_adicionar_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionar_codActionPerformed
-  
-    }//GEN-LAST:event_btn_adicionar_codActionPerformed
-
-    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-  
-      
-    }//GEN-LAST:event_btn_voltarActionPerformed
-
-    private void btn_carrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_carrinhoActionPerformed
-    }//GEN-LAST:event_btn_carrinhoActionPerformed
+    private void btn_voltar_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltar_continuarActionPerformed
+        if (sessao != null) {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao, null);
+        } else {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
+        }
+    }//GEN-LAST:event_btn_voltar_continuarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_adicionar_cod;
-    private javax.swing.JButton btn_carrinho;
-    private javax.swing.JButton btn_voltar;
+    private javax.swing.JButton btn_voltar_continuar;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
