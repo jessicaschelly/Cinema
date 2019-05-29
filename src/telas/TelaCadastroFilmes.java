@@ -27,9 +27,9 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         btn_salvar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        cbox_linguagem = new javax.swing.JComboBox<String>();
+        cbox_linguagem = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        cbox_exibicao = new javax.swing.JComboBox<String>();
+        cbox_exibicao = new javax.swing.JComboBox<>();
         txt_duracao = new javax.swing.JTextField();
         txt_titulo = new javax.swing.JTextField();
         txt_genero = new javax.swing.JTextField();
@@ -75,7 +75,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel7.setText("Exibição:");
 
         cbox_exibicao.setBackground(new java.awt.Color(250, 250, 250));
-        cbox_exibicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3D" }));
+        cbox_exibicao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3D" }));
 
         txt_duracao.setBackground(new java.awt.Color(250, 250, 250));
         txt_duracao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -175,7 +175,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +228,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addComponent(btn_salvar)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(307, Short.MAX_VALUE)
+                .addContainerGap(312, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel8)
@@ -266,7 +266,9 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
 
         try {
             controladores.ControladorFilme.getInstance().cadastra(titulo, duracao, genero, sinopse, linguagem, exibicao, classificacao, image);
+            JOptionPane.showMessageDialog(null, "Filme cadastrado com sucesso!");
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+            
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Erro, insira uma classificação válida.");
         } catch (DateTimeParseException ex) {
@@ -275,12 +277,10 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             
         }
-
-
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaManterFilmes();
     }//GEN-LAST:event_btn_voltarActionPerformed
 private String ArquivoSelecionado;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

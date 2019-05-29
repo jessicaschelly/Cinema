@@ -23,5 +23,8 @@ public interface IMainFrame {
     void exibeTelaSelecaoFilme();
     
     void exibeTelaPagamento(Sessao sessao);
-
-}
+    
+    void exibeTelaManterFilmes();
+    
+    void exibeTelaManterSessoes();
+}   

@@ -17,13 +17,11 @@ public class TelaFuncionario extends javax.swing.JPanel {
     private void initComponents() {
 
         jPasswordField1 = new javax.swing.JPasswordField();
-        btn_adicionar_filmes = new javax.swing.JButton();
         btn_listar_filmes = new javax.swing.JButton();
         btn_adicionar_sessoes = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
         lbl_bem_vindo = new javax.swing.JLabel();
         btn_relatorio = new javax.swing.JButton();
-        btn_listar_sessoes = new javax.swing.JButton();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -31,21 +29,11 @@ public class TelaFuncionario extends javax.swing.JPanel {
         setFocusable(false);
         setRequestFocusEnabled(false);
 
-        btn_adicionar_filmes.setBackground(new java.awt.Color(76, 76, 76));
-        btn_adicionar_filmes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btn_adicionar_filmes.setForeground(new java.awt.Color(37, 184, 255));
-        btn_adicionar_filmes.setText("Adicionar Filmes");
-        btn_adicionar_filmes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_adicionar_filmesActionPerformed(evt);
-            }
-        });
-
         btn_listar_filmes.setBackground(new java.awt.Color(76, 76, 76));
         btn_listar_filmes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btn_listar_filmes.setForeground(new java.awt.Color(37, 184, 255));
-        btn_listar_filmes.setText("Filmes Cadastrados");
-        btn_listar_filmes.setActionCommand("Listar Filmes");
+        btn_listar_filmes.setText("Manter Filmes");
+        btn_listar_filmes.setActionCommand("");
         btn_listar_filmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_listar_filmesActionPerformed(evt);
@@ -55,7 +43,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
         btn_adicionar_sessoes.setBackground(new java.awt.Color(76, 76, 76));
         btn_adicionar_sessoes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btn_adicionar_sessoes.setForeground(new java.awt.Color(37, 184, 255));
-        btn_adicionar_sessoes.setText("Adicionar sessões");
+        btn_adicionar_sessoes.setText("Manter Sessões");
         btn_adicionar_sessoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_adicionar_sessoesActionPerformed(evt);
@@ -81,53 +69,38 @@ public class TelaFuncionario extends javax.swing.JPanel {
             }
         });
 
-        btn_listar_sessoes.setBackground(new java.awt.Color(76, 76, 76));
-        btn_listar_sessoes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        btn_listar_sessoes.setForeground(new java.awt.Color(37, 184, 255));
-        btn_listar_sessoes.setText("Listar Sessões");
-        btn_listar_sessoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_listar_sessoesActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 263, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_listar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_adicionar_sessoes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(480, 480, 480))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_relatorio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_voltar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_relatorio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_voltar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_bem_vindo, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 396, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_adicionar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_listar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_adicionar_sessoes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_listar_sessoes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(347, 347, 347))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_bem_vindo, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(93, 93, 93)
                 .addComponent(lbl_bem_vindo)
-                .addGap(38, 38, 38)
-                .addComponent(btn_adicionar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(75, 75, 75)
                 .addComponent(btn_listar_filmes, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(43, 43, 43)
                 .addComponent(btn_adicionar_sessoes, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btn_listar_sessoes, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_voltar)
                     .addComponent(btn_relatorio))
@@ -139,16 +112,12 @@ public class TelaFuncionario extends javax.swing.JPanel {
         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
-    private void btn_adicionar_filmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionar_filmesActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroFilmes();
-    }//GEN-LAST:event_btn_adicionar_filmesActionPerformed
-
     private void btn_listar_filmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar_filmesActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaFilmes();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaManterFilmes();
     }//GEN-LAST:event_btn_listar_filmesActionPerformed
 
     private void btn_adicionar_sessoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionar_sessoesActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroSessoes();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaManterSessoes();
     }//GEN-LAST:event_btn_adicionar_sessoesActionPerformed
 
     private void btn_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_relatorioActionPerformed
@@ -161,16 +130,10 @@ public class TelaFuncionario extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, mensagem);
     }//GEN-LAST:event_btn_relatorioActionPerformed
 
-    private void btn_listar_sessoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar_sessoesActionPerformed
-       ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListaSessoes();
-    }//GEN-LAST:event_btn_listar_sessoesActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_adicionar_filmes;
     private javax.swing.JButton btn_adicionar_sessoes;
     private javax.swing.JButton btn_listar_filmes;
-    private javax.swing.JButton btn_listar_sessoes;
     private javax.swing.JButton btn_relatorio;
     private javax.swing.JButton btn_voltar;
     private javax.swing.JPasswordField jPasswordField1;

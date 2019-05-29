@@ -127,7 +127,7 @@ public class TelaListarSessoes extends javax.swing.JPanel {
 
     private void remover_sessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_sessaoActionPerformed
      int dialogButton = JOptionPane.YES_NO_OPTION;
-       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja excluir esta sessão?","Warning",dialogButton);
+       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja remover esta sessão?","Warning",dialogButton);
        if(dialogResult == JOptionPane.YES_OPTION){ 
        ControladorSessao.getInstance().sessoes.remove(list_sessoes.getSelectedIndex());
        }else{

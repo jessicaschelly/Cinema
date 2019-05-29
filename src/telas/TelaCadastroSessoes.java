@@ -164,6 +164,7 @@ public class TelaCadastroSessoes extends javax.swing.JPanel {
 
         try {
             ControladorSessao.getInstance().cadastra(sala, horario, filme);
+            JOptionPane.showMessageDialog(null, "Sessao cadastrada com sucesso!");
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
         } catch (DateTimeParseException ex) {
             JOptionPane.showMessageDialog(null, "Horário em formato incorreto");

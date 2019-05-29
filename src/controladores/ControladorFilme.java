@@ -26,7 +26,7 @@ public class ControladorFilme extends Controlador {
         verificaCampoVazio(duracao, "Duração");
         verificaCampoVazio(genero, "Gênero");
         verificaCampoVazio(sinopse, "Sinopse");
-        verificaCampoVazio(image, "Image");
+        verificaCampoVazio(image, "Imagem");
 
         int classificacaoInt = Integer.parseInt(classificacao);
 
@@ -35,8 +35,9 @@ public class ControladorFilme extends Controlador {
         if (getFilmeByTitulo(titulo) != null) {
             throw new CadastroRepetidoException("Erro: Filme com titulo '" + titulo + "' já cadastrado.");
         }
-
+         
         Filme filme = new Filme(titulo, duracaoTime, genero, sinopse, linguagem, exibicao, classificacaoInt, image);
+        
         filmes.add(filme);
         return filme;
     }

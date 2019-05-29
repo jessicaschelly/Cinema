@@ -95,7 +95,7 @@ public class TelaListarFilmes extends javax.swing.JPanel {
 
     private void btn_remover_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remover_filmeActionPerformed
        int dialogButton = JOptionPane.YES_NO_OPTION;
-       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja excluir este filme?","Warning",dialogButton);
+       int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja remover este filme?","Warning",dialogButton);
        if(dialogResult == JOptionPane.YES_OPTION){ 
        ControladorFilme.getInstance().filmes.remove(list_filmes.getSelectedIndex());
        }else{

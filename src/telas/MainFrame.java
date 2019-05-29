@@ -128,7 +128,18 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         setContentPane(tf);
         validate();
     }
-
+    
+      public void exibeTelaManterFilmes() {
+        TelaManterFilmes tf = new TelaManterFilmes();
+        setContentPane(tf);
+        validate();
+    }
+      
+       public void exibeTelaManterSessoes() {
+        TelaManterSessoes tf = new TelaManterSessoes();
+        setContentPane(tf);
+        validate();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
