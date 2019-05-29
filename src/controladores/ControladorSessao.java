@@ -3,6 +3,8 @@ package controladores;
 import entidades.Filme;
 import entidades.Sessao;
 import entidades.Sala;
+import enums.Exibicao;
+import enums.Linguagem;
 import java.util.ArrayList;
 import exceptions.*;
 import java.time.Duration;
@@ -23,10 +25,10 @@ public class ControladorSessao extends Controlador {
         return instance;
     }
 
-    public Sessao cadastra(Sala sala, String horario, Filme filme) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException, DateTimeParseException, Exception {
+    public Sessao cadastra(Sala sala, String horario, Filme filme, Exibicao exibicao, Linguagem linguagem) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException, DateTimeParseException, Exception {
         LocalTime horarioTime = LocalTime.parse(horario);
 
-        Sessao sessao = new Sessao(sala, horarioTime, filme);
+        Sessao sessao = new Sessao(sala, horarioTime, filme, exibicao, linguagem );
 
         if (!podeCadastrarSessao(sessao)) {
             throw new Exception("Erro ao cadastrar sessão, já possui uma em andamento no mesmo horário.");

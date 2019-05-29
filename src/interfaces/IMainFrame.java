@@ -2,6 +2,7 @@ package interfaces;
 
 import entidades.Filme;
 import entidades.Funcionario;
+import entidades.Produto;
 import entidades.Sessao;
 
 public interface IMainFrame {
@@ -22,9 +23,13 @@ public interface IMainFrame {
     
     void exibeTelaSelecaoFilme();
     
-    void exibeTelaPagamento(Sessao sessao);
+    void exibeTelaPagamento(Sessao sessao, Produto produto);
     
     void exibeTelaManterFilmes();
     
     void exibeTelaManterSessoes();
+    
+    void exibeTelaCadastrarFuncionario();
+    
+    void exibeTelaListarFuncionarios();
 }   

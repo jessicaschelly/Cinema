@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package telas;
+package telas.gerencia;
 
 import controladores.ControladorEntidades;
 import entidades.Ingresso;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import telas.MainFrame;
 
 /**
  *
@@ -61,7 +62,7 @@ public class TelaManterSessoes extends javax.swing.JPanel {
         lbl_bem_vindo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_bem_vindo.setForeground(new java.awt.Color(37, 184, 255));
         lbl_bem_vindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_bem_vindo.setText("Manter Sessões");
+        lbl_bem_vindo.setText("Gerenciar Sessões");
 
         btn_listar_sessoes.setBackground(new java.awt.Color(76, 76, 76));
         btn_listar_sessoes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -135,7 +136,7 @@ public class TelaManterSessoes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_adicionar_sessoesActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaManterSessoes();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_listar_sessoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar_sessoesActionPerformed

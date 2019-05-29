@@ -127,7 +127,7 @@
               <Color blue="ff" green="b8" red="25" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Manter Sess&#xf5;es"/>
+            <Property name="text" type="java.lang.String" value="Gerenciar Sess&#xf5;es"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_listar_sessoes">

@@ -1,20 +1,21 @@
-package telas;
+package telas.gerencia;
 
 import controladores.ControladorFilme;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import telas.MainFrame;
 
 public class TelaListarFilmes extends javax.swing.JPanel {
 
     public TelaListarFilmes() {
         initComponents();
 
-        list_filmes.setListData(ControladorFilme.getInstance().nomesFilmesEDescricao());
+        list_filmes.setListData(ControladorFilme.getInstance().nomesFilmes());
         refresh();
     }
     
      public void refresh(){
-        list_filmes.setListData(ControladorFilme.getInstance().nomesFilmesEDescricao());
+        list_filmes.setListData(ControladorFilme.getInstance().nomesFilmes());
        
     }
 
@@ -23,7 +24,7 @@ public class TelaListarFilmes extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        list_filmes = new javax.swing.JList<String>();
+        list_filmes = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JButton();
         btn_remover_filme = new javax.swing.JButton();

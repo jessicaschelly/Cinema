@@ -1,9 +1,10 @@
-package telas;
+package telas.gerencia;
 
 import entidades.Funcionario;
 import entidades.Ingresso;
 import controladores.ControladorEntidades;
 import javax.swing.*;
+import telas.MainFrame;
 
 public class TelaFuncionario extends javax.swing.JPanel {
 
@@ -32,7 +33,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
         btn_listar_filmes.setBackground(new java.awt.Color(76, 76, 76));
         btn_listar_filmes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btn_listar_filmes.setForeground(new java.awt.Color(37, 184, 255));
-        btn_listar_filmes.setText("Manter Filmes");
+        btn_listar_filmes.setText("Gerenciar Filmes");
         btn_listar_filmes.setActionCommand("");
         btn_listar_filmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,7 +44,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
         btn_adicionar_sessoes.setBackground(new java.awt.Color(76, 76, 76));
         btn_adicionar_sessoes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btn_adicionar_sessoes.setForeground(new java.awt.Color(37, 184, 255));
-        btn_adicionar_sessoes.setText("Manter Sessões");
+        btn_adicionar_sessoes.setText("Gerenciar Sessões");
         btn_adicionar_sessoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_adicionar_sessoesActionPerformed(evt);

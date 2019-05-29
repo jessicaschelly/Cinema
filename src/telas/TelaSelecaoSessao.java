@@ -8,6 +8,7 @@ import entidades.Poltrona;
 import entidades.Ingresso;
 import controladores.ControladorEntidades;
 import controladores.ControladorSessao;
+import enums.Classificacao;
 import java.time.Duration;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -18,7 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
+public class TelaSelecaoSessao extends javax.swing.JPanel {
 
   
     public static String formatDuration(Duration duration) {
@@ -32,33 +33,32 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
         return seconds < 0 ? "-" + positive : positive;
     }
 
-    private Filme filme;
-    private Sessao sessao;
+    private final Filme filme;
     public void trocaCorClassif(){
-        if(filme.getClassificacao() == 0){
+        if(filme.getClassificacao().equals(Classificacao.LIVRE)){
             lbl_classificacao.setBackground(Color.green);
             lbl_classificacao.setText("L");
         }
-        if(filme.getClassificacao() == 10){
+       if(filme.getClassificacao().equals(Classificacao.DEZ)){
             lbl_classificacao.setBackground(Color.blue);
         }
-        if(filme.getClassificacao() == 12){
+       if(filme.getClassificacao().equals(Classificacao.DOZE)){
             lbl_classificacao.setForeground(Color.black);
             lbl_classificacao.setBackground(Color.yellow);
         }
-          if(filme.getClassificacao() == 14){
+         if(filme.getClassificacao().equals(Classificacao.QUATORZE)){
             lbl_classificacao.setBackground(Color.orange);
         }
-            if(filme.getClassificacao() == 16){
+            if(filme.getClassificacao().equals(Classificacao.DEZESSEIS)){
             lbl_classificacao.setBackground(Color.red);
-        }   if(filme.getClassificacao() == 18){
+        }   if(filme.getClassificacao().equals(Classificacao.DEZOITO)){
             lbl_classificacao.setBackground(Color.black);
         }
     }
    
-    TelaConfirmacaoIngresso(Filme filme) {
+    TelaSelecaoSessao(Filme filme) {
         this.filme = filme;
-        Filme f = this.filme;
+        
         initComponents();
 //      jPanel1.add(new JLabel("testeeeeee"));;
         
@@ -66,12 +66,12 @@ public class TelaConfirmacaoIngresso extends javax.swing.JPanel {
         //opaque pra trocar o background
         lbl_classificacao.setOpaque(true);
         //pega dados do filme
-        lbl_titulo.setText(f.getTitulo());
-        lbl_duracao.setText(formatDuration(f.getDuracao()));
-        lbl_genero.setText(f.getGenero());
-        lbl_classificacao.setText(Integer.toString(f.getClassificacao()));
-        jTextPane1.setText(f.getSinopse());
-        painelImagemFundo1.setImg(new ImageIcon(f.getImage()));
+        lbl_titulo.setText(filme.getTitulo());
+        lbl_duracao.setText(formatDuration(filme.getDuracao()));
+        lbl_genero.setText(filme.getGenero());
+        lbl_classificacao.setText(filme.getClassificacao().getName());
+        jTextPane1.setText(filme.getSinopse());
+        painelImagemFundo1.setImg(new ImageIcon(filme.getImage()));
         trocaCorClassif();
     }
       

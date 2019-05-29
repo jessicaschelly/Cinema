@@ -1,5 +1,6 @@
-package telas;
+package telas.gerencia;
 
+import enums.Classificacao;
 import enums.Exibicao;
 import enums.Linguagem;
 import java.io.File;
@@ -9,14 +10,14 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileSystemView;
+import telas.MainFrame;
 
 public class TelaCadastroFilmes extends javax.swing.JPanel {
 
     public TelaCadastroFilmes() {
         initComponents();
 
-        cbox_linguagem.setModel(new DefaultComboBoxModel(Linguagem.values()));
-        cbox_exibicao.setModel(new DefaultComboBoxModel(Exibicao.valuesNormais()));
+        cbox_classificacao.setModel(new DefaultComboBoxModel(Classificacao.valuesNormais()));
     }
 
     @SuppressWarnings("unchecked")
@@ -27,9 +28,6 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         btn_salvar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        cbox_linguagem = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        cbox_exibicao = new javax.swing.JComboBox<>();
         txt_duracao = new javax.swing.JTextField();
         txt_titulo = new javax.swing.JTextField();
         txt_genero = new javax.swing.JTextField();
@@ -40,12 +38,10 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_classificacao = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        cbox_classificacao = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(51, 51, 51));
 
@@ -68,14 +64,6 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel8.setText("Cadastro de filmes");
 
         jPanel1.setBackground(new java.awt.Color(76, 76, 76));
-
-        cbox_linguagem.setBackground(new java.awt.Color(250, 250, 250));
-
-        jLabel7.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel7.setText("Exibição:");
-
-        cbox_exibicao.setBackground(new java.awt.Color(250, 250, 250));
-        cbox_exibicao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3D" }));
 
         txt_duracao.setBackground(new java.awt.Color(250, 250, 250));
         txt_duracao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -107,15 +95,6 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(37, 184, 255));
         jLabel4.setText("Gênero: ");
 
-        txt_classificacao.setBackground(new java.awt.Color(250, 250, 250));
-        txt_classificacao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        jLabel6.setForeground(new java.awt.Color(37, 184, 255));
-        jLabel6.setText("Linguagem:");
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("anos");
-
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("(HH:mm)");
 
@@ -129,6 +108,8 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
             }
         });
 
+        cbox_classificacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,26 +122,15 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(cbox_linguagem, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbox_exibicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(cbox_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(25, 34, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -193,19 +163,10 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cbox_linguagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cbox_exibicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txt_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(cbox_classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -214,7 +175,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -244,7 +205,7 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_voltar)
                     .addComponent(btn_salvar))
@@ -258,14 +219,12 @@ public class TelaCadastroFilmes extends javax.swing.JPanel {
         String genero = txt_genero.getText();
         String image = ArquivoSelecionado;
 
-        Linguagem linguagem = Linguagem.valueOf(cbox_linguagem.getSelectedItem().toString());
-        Exibicao exibicao = Exibicao.getExibicao(cbox_exibicao.getSelectedItem().toString());
-
+        Classificacao classificacao = Classificacao.getClassificacao(cbox_classificacao.getSelectedItem().toString());
         String sinopse = txt_sinopse.getText();
-        String classificacao = txt_classificacao.getText();
+        
 
         try {
-            controladores.ControladorFilme.getInstance().cadastra(titulo, duracao, genero, sinopse, linguagem, exibicao, classificacao, image);
+            controladores.ControladorFilme.getInstance().cadastra(titulo, duracao, genero, sinopse, classificacao, image);
             JOptionPane.showMessageDialog(null, "Filme cadastrado com sucesso!");
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario();
             
@@ -304,8 +263,7 @@ private String ArquivoSelecionado;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_salvar;
     private javax.swing.JButton btn_voltar;
-    private javax.swing.JComboBox<String> cbox_exibicao;
-    private javax.swing.JComboBox<String> cbox_linguagem;
+    private javax.swing.JComboBox<String> cbox_classificacao;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -314,13 +272,9 @@ private String ArquivoSelecionado;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_classificacao;
     private javax.swing.JTextField txt_duracao;
     private javax.swing.JTextField txt_genero;
     private javax.swing.JTextArea txt_sinopse;

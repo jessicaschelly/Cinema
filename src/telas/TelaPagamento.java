@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package telas;
+
 import entidades.Filme;
+import entidades.Produto;
 import entidades.Sessao;
 import java.awt.Color;
 import java.text.DateFormat;
@@ -12,6 +14,7 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+
 /**
  *
  * @author jsouza
@@ -23,29 +26,33 @@ public class TelaPagamento extends javax.swing.JPanel {
      */
     private Sessao sessao;
     private Filme filme;
-    
-    public String dataAtual(){
+
+    public String dataAtual() {
         java.util.Date d = new Date();
         String dStr = java.text.DateFormat.getDateInstance(DateFormat.SHORT).format(d);
         return dStr;
     }
-    public TelaPagamento(Sessao sessao) {
-        this.sessao = sessao;
-        
-     
+
+    public TelaPagamento(Sessao sessao, Produto produto) {
         initComponents();
+        if (sessao != null) {
+            System.out.println(sessao);
+            System.out.println(sessao.getFilme());
+            this.sessao = sessao;
+            painelImagemFundo2.setImg(new ImageIcon(sessao.getFilme().getImage()));
+            lbl_titulo.setText(sessao.getFilme().getTitulo());
+            lbl_horario.setText(dataAtual() + "  - " + sessao.getHorario().toString());
+            lbl_exibicao.setText(sessao.getExibicao().getName());
+            lbl_linguagem.setText(sessao.getLinguagem().toString());
+        }
+
         lbl_linguagem.setOpaque(true);
         lbl_exibicao.setOpaque(true);
-         painelImagemFundo2.setImg(new ImageIcon(sessao.getFilme().getImage()));
-         painelImagemFundo1.setImg(new ImageIcon("resources/card.png"));
-         painelImagemFundo3.setImg(new ImageIcon("resources/credit-card.png"));
-           painelImagemFundo4.setImg(new ImageIcon("resources/debit-card.png"));
-            painelImagemFundo5.setImg(new ImageIcon("resources/vale-cultura.png"));
-            painelImagemFundo5.setBackground(Color.yellow);
-         lbl_titulo.setText(sessao.getFilme().getTitulo());
-         lbl_horario.setText(dataAtual() + "  - " + sessao.getHorario().toString());
-         lbl_exibicao.setText(sessao.getFilme().getExibicao().getName());
-         lbl_linguagem.setText(sessao.getFilme().getLinguagem().toString());
+        painelImagemFundo1.setImg(new ImageIcon("resources/card.png"));
+        painelImagemFundo3.setImg(new ImageIcon("resources/credit-card.png"));
+        painelImagemFundo4.setImg(new ImageIcon("resources/debit-card.png"));
+        painelImagemFundo5.setImg(new ImageIcon("resources/vale-cultura.png"));
+        painelImagemFundo5.setBackground(Color.yellow);
     }
 
     /**

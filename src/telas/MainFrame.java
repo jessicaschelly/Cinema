@@ -1,8 +1,19 @@
 package telas;
 
+import telas.gerencia.TelaListarFuncionarios;
+import telas.gerencia.TelaManterFilmes;
+import telas.gerencia.TelaFuncionario;
+import telas.gerencia.TelaCadastroFuncionario;
+import telas.gerencia.TelaManterSessoes;
+import telas.gerencia.TelaCadastroSessoes;
+import telas.gerencia.TelaListarFilmes;
+import telas.gerencia.TelaListarSessoes;
+import telas.gerencia.TelaCadastroFilmes;
+import telas.gerencia.TelaGerencia;
 import entidades.Filme;
 import entidades.Funcionario;
 import entidades.Gerente;
+import entidades.Produto;
 import entidades.Sessao;
 import interfaces.IMainFrame;
 import java.awt.BorderLayout;
@@ -14,9 +25,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
     public MainFrame() {
         initComponents();
 
-        
         setTitle("Compra de Ingressos Online");
-         setSize(1020,700);
+        setSize(1020, 700);
         //setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout());
@@ -60,22 +70,24 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
 
         validate();
     }
-    
+
     public void exibeTelaFuncionario() {
         TelaFuncionario tf = new TelaFuncionario(funcionarioLogado);
         setContentPane(tf);
 
         validate();
     }
-    
+
     public void exibeTelaGerencia(Gerente gerente) {
+        gerentelogado = gerente;
         TelaGerencia tf = new TelaGerencia(gerente);
         setContentPane(tf);
 
         validate();
     }
-    
-      public void exibeTelaGerencia() {
+
+    public void exibeTelaGerencia() {
+
         TelaGerencia tf = new TelaGerencia(gerentelogado);
         setContentPane(tf);
 
@@ -95,8 +107,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
 
         validate();
     }
-    
-      public void exibeTelaListaSessoes() {
+
+    public void exibeTelaListaSessoes() {
         TelaListarSessoes tf = new TelaListarSessoes();
         setContentPane(tf);
 
@@ -111,35 +123,54 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
     }
 
     public void exibeTelaConfirmacaoIngresso(Filme filme) {
-        TelaConfirmacaoIngresso tf = new TelaConfirmacaoIngresso(filme);
+        TelaSelecaoSessao tf = new TelaSelecaoSessao(filme);
         setContentPane(tf);
         validate();
     }
-    
+
     @Override
     public void exibeTelaSelecaoFilme() {
         TelaSelecaoFilme tf = new TelaSelecaoFilme();
         setContentPane(tf);
         validate();
     }
-     
-    public void exibeTelaPagamento(Sessao sessao) {
-        TelaPagamento tf = new TelaPagamento(sessao);
+
+    public void exibeTelaPagamento(Sessao sessao, Produto produto) {
+        TelaPagamento tf = new TelaPagamento(sessao, produto);
         setContentPane(tf);
         validate();
     }
-    
-      public void exibeTelaManterFilmes() {
+
+    public void exibeTelaManterFilmes() {
         TelaManterFilmes tf = new TelaManterFilmes();
         setContentPane(tf);
         validate();
     }
-      
-       public void exibeTelaManterSessoes() {
+
+    public void exibeTelaManterSessoes() {
         TelaManterSessoes tf = new TelaManterSessoes();
         setContentPane(tf);
         validate();
     }
+
+    public void exibeTelaCadastrarFuncionario() {
+        TelaCadastroFuncionario tf = new TelaCadastroFuncionario();
+        setContentPane(tf);
+        validate();
+    }
+
+    public void exibeTelaListarFuncionarios() {
+        TelaListarFuncionarios tf = new TelaListarFuncionarios();
+        setContentPane(tf);
+        validate();
+    }
+
+    public void exibeTelaBombonier(Sessao sessao) {
+        TelaBombonier tb = new TelaBombonier(sessao);
+        setContentPane(tb);
+        validate();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

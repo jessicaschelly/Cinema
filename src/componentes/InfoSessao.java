@@ -36,41 +36,43 @@ public class InfoSessao extends javax.swing.JPanel {
         initComponents();
         this.setOpaque(false);
 
-        
-         this.setBackground(new Color(0,0,0,0));
+        this.setBackground(new Color(0, 0, 0, 0));
 
         List<Sessao> sessoes = controladores.ControladorSessao.getInstance().getSessoesByFilme(filme);
-        
-                
-                
-       JLabel l = new JLabel(filme.getExibicao().getName() + " - " + filme.getLinguagem().name() + ": ");
-       l.setFont(new Font(Font.SERIF, Font.PLAIN, 16));
-       l.setForeground(Color.white);
+
+        JLabel l = new JLabel("batata");
+        l.setFont(new Font(Font.SERIF, Font.PLAIN, 16));
+        l.setForeground(Color.white);
         this.add(l);
-        
-        if (sessoes.size() == 0){
+
+        if (sessoes.size() == 0) {
             l = new JLabel("Este filme não tem sessões disponíveis!");
-       l.setFont(new Font(Font.SERIF, Font.BOLD, 16));
-       l.setForeground(Color.white);
-        this.add(l);
+            l.setFont(new Font(Font.SERIF, Font.BOLD, 16));
+            l.setForeground(Color.white);
+            this.add(l);
         }
-        
+
         for (Sessao sessao : sessoes) {
-            MyButton jb = new MyButton(sessao.getHorario().toString());
+            MyButton jb = new MyButton(sessao.getHorario().toString() + " " + sessao.getExibicao().getName() + " " + sessao.getLinguagem().name());
             jb.addActionListener((ActionEvent e) -> {
                 if (LocalTime.now().isAfter(sessao.getHorario().plusMinutes(10))) {
                     JOptionPane.showMessageDialog(SwingUtilities.getWindowAncestor(this), "Sessão começou há mais de 10 minutos atrás.");
                     return;
-                }
-                else if (sessao.temVaga()) {
-                     ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao);
+                } else if (sessao.temVaga()) {
+
+                    int aceitou = JOptionPane.showConfirmDialog(SwingUtilities.getWindowAncestor(this), "Deseja adicionar um combo da bombonier?");
+                    if (aceitou == JOptionPane.YES_OPTION) {
+                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(sessao);
+                    } else {
+                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao, null);
+                    }
                 } else {
-                    JOptionPane.showMessageDialog( null, "Sessão está lotada.");
+                    JOptionPane.showMessageDialog(null, "Sessão está lotada.");
                 }
             });
             this.add(jb);
         }
-     
+
     }
 
     /**
