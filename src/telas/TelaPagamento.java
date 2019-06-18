@@ -404,7 +404,7 @@ public class TelaPagamento extends javax.swing.JPanel {
         if (sessao != null) {
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaSelecaoSessao(sessao.getFilme());
         } else{
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(null);
         }
 
     }//GEN-LAST:event_btn_voltarActionPerformed

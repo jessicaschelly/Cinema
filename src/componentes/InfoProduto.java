@@ -38,7 +38,7 @@ public class InfoProduto extends javax.swing.JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "O código do produto "+ produto.getNome() + " é: " + produto.getCodigo());
+                JOptionPane.showMessageDialog(null, "O "+ produto.getNome() + " é composto por: " + produto.getDetalhes());
             }
         });
     }

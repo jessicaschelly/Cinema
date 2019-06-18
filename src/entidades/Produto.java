@@ -14,11 +14,13 @@ public class Produto {
     String codigo;
     double preco;
     String image;
-    public Produto(String nome, String codigo, double preco, String image){
+    private String detalhes;
+    public Produto(String nome, String codigo, double preco, String image, String detalhes){
         this.nome = nome;
         this.codigo = codigo;
         this.preco = preco;
         this.image = image;
+        this.detalhes = detalhes;
     }
 
     public String getNome() {
@@ -59,6 +61,14 @@ public class Produto {
     public String getPrecoString() {
         return String.format("%.2f", new Double(preco));
         
+    }
+
+    public String getDetalhes() {
+        return detalhes;
+    }
+
+    public void setDetalhes(String detalhes) {
+        this.detalhes = detalhes;
     }
 }
 

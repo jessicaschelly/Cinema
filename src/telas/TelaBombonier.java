@@ -39,8 +39,10 @@ public class TelaBombonier extends javax.swing.JPanel {
         this.sessao = sessao;
 
         ArrayList<Produto> produtos = new ArrayList<>();
-        produtos.add(new Produto("Pipoca 'n' cream", "1", 10, "resources/pipoca-cream.png"));
-
+        produtos.add(new Produto("Combo Pipoca Salgada", "1", 10, "resources/combosalgada.jpg", "1 pipoca salgada, 1 bebida pequena"));
+        produtos.add(new Produto("Combo Nachos", "2", 12, "resources/combonachos.jpg", "1 Porção de Nachos, 1 bebida média"));
+        produtos.add(new Produto("Combo Balde", "3", 18, "resources/combobalde.jpg", "1 balde de pipoca: salgada ou manteiga, 2 bebidas médias"));
+        produtos.add(new Produto("Combo M&MS", "4", 19, "resources/combomms.jpg", "1 pipoca média salgada, 1 bebida média, 1 M&M 49gr (chocolate ou amendoim)"));
         for (Produto produto : produtos) {
             jPanel1.add(new InfoProduto(produto, sessao));
         }
@@ -86,21 +88,23 @@ public class TelaBombonier extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_voltar_continuar)
-                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_voltar_continuar)
+                        .addGap(54, 54, 54))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(41, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(btn_voltar_continuar)
                 .addContainerGap())
         );
