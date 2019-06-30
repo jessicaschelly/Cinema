@@ -40,7 +40,7 @@ public class InfoSessao extends javax.swing.JPanel {
 
         List<Sessao> sessoes = controladores.ControladorSessao.getInstance().getSessoesByFilme(filme);
 
-        JLabel l = new JLabel("batata");
+        JLabel l = new JLabel("");
         l.setFont(new Font(Font.SERIF, Font.PLAIN, 16));
         l.setForeground(Color.white);
         this.add(l);

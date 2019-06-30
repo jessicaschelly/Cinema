@@ -50,6 +50,14 @@ public class TelaPagamento extends javax.swing.JPanel {
             lbl_produto.setText(produto.getNome());
             lbl_preco_produto.setText(produto.getPrecoString());
         }
+        
+        if (sessao == null) {
+            painelImagemFundo2.setImg(new ImageIcon("resources/sem-filme.jpg"));
+            lbl_titulo.setText("");
+            lbl_horario.setText("");
+            lbl_exibicao.setText("");
+            lbl_linguagem.setText("");
+        }
 
         lbl_linguagem.setOpaque(true);
         lbl_exibicao.setOpaque(true);
