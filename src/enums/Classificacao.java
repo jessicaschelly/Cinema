@@ -51,5 +51,9 @@ public enum Classificacao {
 
         return classificacoes.toArray(new String[classificacoes.size()]);
     }
-
+        
+        public int getIdade () {
+           int idade =  Integer.parseInt(fieldDescription);
+           return idade;
+        }
 }

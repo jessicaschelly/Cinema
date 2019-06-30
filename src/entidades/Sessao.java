@@ -16,14 +16,19 @@ public class Sessao {
     public final ArrayList<Poltrona> poltronas = new ArrayList<>();
 
     public Sessao(Sala sala, LocalTime horario, Filme filme, Exibicao exibicao, Linguagem linguagem) {
-        poltronas.add(new Poltrona());
-        poltronas.add(new Poltrona());
-        poltronas.add(new Poltrona());
-        poltronas.add(new Poltrona());
-        poltronas.add(new Poltrona());
-        poltronas.add(new Poltrona());
-        poltronas.add(new Poltrona());
-        
+        poltronas.add(new Poltrona("A-1"));    
+        poltronas.add(new Poltrona("A-2"));    
+        poltronas.add(new Poltrona("A-3"));    
+        poltronas.add(new Poltrona("A-4"));    
+        poltronas.add(new Poltrona("B-1"));    
+        poltronas.add(new Poltrona("B-2"));    
+        poltronas.add(new Poltrona("B-3"));    
+        poltronas.add(new Poltrona("B-4"));    
+        poltronas.add(new Poltrona("C-1"));    
+        poltronas.add(new Poltrona("C-2"));    
+        poltronas.add(new Poltrona("C-3"));    
+        poltronas.add(new Poltrona("C-4"));    
+       
         this.sala = sala;
         this.horario = horario;
         this.filme = filme;

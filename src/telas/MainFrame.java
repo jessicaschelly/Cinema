@@ -13,6 +13,7 @@ import telas.gerencia.TelaGerencia;
 import entidades.Filme;
 import entidades.Funcionario;
 import entidades.Gerente;
+import entidades.Informacoes;
 import entidades.Produto;
 import entidades.Sessao;
 import interfaces.IMainFrame;
@@ -115,7 +116,7 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-    public void exibeTelaCadastroSessoes(Sessao sessao ) {
+    public void exibeTelaCadastroSessoes(Sessao sessao) {
         TelaCadastroSessoes tf = new TelaCadastroSessoes(sessao );
         setContentPane(tf);
 
@@ -135,8 +136,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-    public void exibeTelaPagamento(Sessao sessao, Produto produto) {
-        TelaPagamento tf = new TelaPagamento(sessao, produto);
+    public void exibeTelaPagamento(Informacoes informacoes) {
+        TelaPagamento tf = new TelaPagamento(informacoes);
         setContentPane(tf);
         validate();
     }
@@ -164,9 +165,15 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         setContentPane(tf);
         validate();
     }
+    
+     public void exibeTelaPoltrona(Informacoes informacoes) {
+        TelaPoltrona tb = new TelaPoltrona(informacoes);
+        setContentPane(tb);
+        validate();
+    }
 
-    public void exibeTelaBombonier(Sessao sessao) {
-        TelaBombonier tb = new TelaBombonier(sessao);
+    public void exibeTelaBombonier(Informacoes informacoes) {
+        TelaBombonier tb = new TelaBombonier(informacoes);
         setContentPane(tb);
         validate();
     }

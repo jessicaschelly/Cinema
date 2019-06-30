@@ -8,6 +8,7 @@ package telas;
 import componentes.InfoProduto;
 import controladores.ControladorEntidades;
 import entidades.Funcionario;
+import entidades.Informacoes;
 import entidades.Produto;
 import entidades.Sessao;
 import java.awt.Component;
@@ -24,30 +25,24 @@ import javax.swing.SwingUtilities;
  */
 public class TelaBombonier extends javax.swing.JPanel {
 
-    /**
-     * Creates new form TelaCompra
-     */
-    Component frame = null;
+    private final Informacoes informacoes;
 
-    private final Sessao sessao;
-
-    /**
-     * Creates new form TelaBombonier
-     */
-    public TelaBombonier(Sessao sessao) {
+    public TelaBombonier(Informacoes informacoes) {
         initComponents();
-        this.sessao = sessao;
+        this.informacoes = informacoes;
 
         ArrayList<Produto> produtos = new ArrayList<>();
-        produtos.add(new Produto("Combo Pipoca Salgada", "1", 10, "resources/combosalgada.jpg", "1 pipoca salgada, 1 bebida pequena"));
-        produtos.add(new Produto("Combo Nachos", "2", 12, "resources/combonachos.jpg", "1 Porção de Nachos, 1 bebida média"));
+        produtos.add(new Produto("Combo Pipoca Salgada", "1", 10, "resources/combosalgada.jpg", "1 pipoca média salgada, 1 bebida pequena"));
+        produtos.add(new Produto("Combo Pipoca Doce", "1", 10, "resources/combomegadoce.jpg", "1 pipoca média doce, 1 bebida pequena"));
+        produtos.add(new Produto("Combo Pipoca Fini", "1", 16, "resources/combofini.jpg", "1 pipoca média salgada, 1 bebida média, 1 Fini: 80g"));
+        produtos.add(new Produto("Combo Salgado", "2", 14, "resources/combosalgado.jpg", "1 Porção de pão de nuggets, 1 bebida média"));
         produtos.add(new Produto("Combo Balde", "3", 18, "resources/combobalde.jpg", "1 balde de pipoca: salgada ou manteiga, 2 bebidas médias"));
-        produtos.add(new Produto("Combo M&MS", "4", 19, "resources/combomms.jpg", "1 pipoca média salgada, 1 bebida média, 1 M&M 49gr (chocolate ou amendoim)"));
+        produtos.add(new Produto("Combo M&MS", "4", 16, "resources/combomms.jpg", "1 pipoca média salgada, 1 bebida média, 1 M&M 49gr (chocolate ou amendoim)"));
         for (Produto produto : produtos) {
-            jPanel1.add(new InfoProduto(produto, sessao));
+            jPanel1.add(new InfoProduto(produto, informacoes));
         }
 
-        if (sessao != null) {
+        if (informacoes.sessao != null) {
             btn_voltar_continuar.setText("Continuar");
         }else{
             btn_voltar_continuar.setText("Voltar");
@@ -82,7 +77,7 @@ public class TelaBombonier extends javax.swing.JPanel {
         });
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
-        jPanel1.setLayout(new java.awt.GridLayout(2, 4, 10, 10));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 1, 10, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -113,8 +108,8 @@ public class TelaBombonier extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_voltar_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltar_continuarActionPerformed
-        if (sessao != null) {
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao, null);
+        if (informacoes.sessao != null) {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(informacoes);
         } else {
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
         }

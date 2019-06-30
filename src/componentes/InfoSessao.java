@@ -6,6 +6,7 @@
 package componentes;
 
 import entidades.Filme;
+import entidades.Informacoes;
 import entidades.Sessao;
 import java.awt.Color;
 import java.awt.Font;
@@ -59,13 +60,9 @@ public class InfoSessao extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(SwingUtilities.getWindowAncestor(this), "Sessão começou há mais de 10 minutos atrás.");
                     return;
                 } else if (sessao.temVaga()) {
-
-                    int aceitou = JOptionPane.showConfirmDialog(SwingUtilities.getWindowAncestor(this), "Deseja adicionar um combo da bombonier?");
-                    if (aceitou == JOptionPane.YES_OPTION) {
-                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(sessao);
-                    } else {
-                        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao, null);
-                    }
+                    Informacoes i = new Informacoes();
+                    i.sessao = sessao;
+                    ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPoltrona(i);
                 } else {
                     JOptionPane.showMessageDialog(null, "Sessão está lotada.");
                 }

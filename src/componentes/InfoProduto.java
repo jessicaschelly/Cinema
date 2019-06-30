@@ -5,6 +5,7 @@
  */
 package componentes;
 
+import entidades.Informacoes;
 import entidades.Produto;
 import entidades.Sessao;
 import java.awt.event.ActionEvent;
@@ -25,11 +26,11 @@ public class InfoProduto extends javax.swing.JPanel {
      * Creates new form InfoProduto
      */
     private final Produto produto;
-    private final Sessao sessao;
+    private final Informacoes informacoes;
     
-    public InfoProduto(Produto produto, Sessao sessao) {
+    public InfoProduto(Produto produto, Informacoes informacoes) {
         initComponents();
-        this.sessao = sessao;
+        this.informacoes = informacoes;
         this.produto = produto;
         this.lbl_preco.setText("R$: " + produto.getPrecoString());
         this.lbl_nomeProduto.setText(produto.getNome());
@@ -120,7 +121,8 @@ public class InfoProduto extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_produtoActionPerformed
 
     private void btn_maisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_maisActionPerformed
-         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(sessao, produto);
+        informacoes.produto = produto; 
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPagamento(informacoes);
     }//GEN-LAST:event_btn_maisActionPerformed
 
 
