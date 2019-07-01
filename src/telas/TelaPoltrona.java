@@ -440,6 +440,8 @@ public class TelaPoltrona extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Erro, idade abaixo da classificação indicativa do filme.");
                 return;
             }
+            
+            informacoes.valorIngresso = rbtn_meia_entrada.isSelected() ? 20 : 40;
             informacoes.poltrona = this.poltronaSelecionada;
             int aceitou = JOptionPane.showConfirmDialog(SwingUtilities.getWindowAncestor(this), "Deseja adicionar um combo da bomboniere?");
             if (aceitou == JOptionPane.YES_OPTION) {

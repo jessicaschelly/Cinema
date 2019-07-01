@@ -37,6 +37,13 @@ public class TelaPagamento extends javax.swing.JPanel {
         
         System.out.println(informacoes.poltrona.posicao);
         initComponents();
+        
+        if (informacoes.produto != null)  {
+              lbl_valorTotal.setText(String .valueOf(informacoes.valorIngresso + informacoes.produto.getPreco()));
+        } else {
+             lbl_valorTotal.setText(String .valueOf(informacoes.valorIngresso));
+        }
+      
         this.informacoes = informacoes;
         if (informacoes.sessao != null) {
             painelImagemFundo2.setImg(new ImageIcon(informacoes.sessao.getFilme().getImage()));
@@ -102,6 +109,8 @@ public class TelaPagamento extends javax.swing.JPanel {
         painelImagemFundo4 = new entidades.PainelImagemFundo();
         painelImagemFundo5 = new entidades.PainelImagemFundo();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lbl_valorTotal = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setForeground(new java.awt.Color(37, 184, 255));
@@ -331,6 +340,12 @@ public class TelaPagamento extends javax.swing.JPanel {
 
         jLabel2.setText("Em breve outras formas de pagamento!");
 
+        jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        jLabel4.setText("Valor Total:");
+
+        lbl_valorTotal.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
+        lbl_valorTotal.setText("20");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -343,6 +358,10 @@ public class TelaPagamento extends javax.swing.JPanel {
                     .addComponent(painelImagemFundo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_valorTotal))
                     .addComponent(jLabel2)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton3)
@@ -364,9 +383,13 @@ public class TelaPagamento extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(painelImagemFundo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(85, 85, 85)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lbl_valorTotal))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -397,7 +420,7 @@ public class TelaPagamento extends javax.swing.JPanel {
                         .addGap(27, 27, 27)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_concluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -409,7 +432,7 @@ public class TelaPagamento extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Por favor, insira seu cartão no leitor");
         JOptionPane.showMessageDialog(null, "Compra confirmada!");
         this.informacoes.poltrona.ocupada = true;
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaIngressoImpresso(informacoes);
     }//GEN-LAST:event_btn_concluirActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
@@ -434,6 +457,7 @@ public class TelaPagamento extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -447,6 +471,7 @@ public class TelaPagamento extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_preco_produto;
     private javax.swing.JLabel lbl_produto;
     private javax.swing.JLabel lbl_titulo;
+    private javax.swing.JLabel lbl_valorTotal;
     private entidades.PainelImagemFundo painelImagemFundo1;
     private entidades.PainelImagemFundo painelImagemFundo2;
     private entidades.PainelImagemFundo painelImagemFundo3;

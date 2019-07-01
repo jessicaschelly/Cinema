@@ -177,6 +177,12 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         setContentPane(tb);
         validate();
     }
+    
+    public void exibeTelaIngressoImpresso(Informacoes informacoes) {
+        TelaIngressoImpresso tb = new TelaIngressoImpresso(informacoes);
+        setContentPane(tb);
+        validate();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
