@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controladores;
+
 import entidades.Funcionario;
 import exceptions.CadastroRepetidoException;
 import exceptions.CampoVazioException;
@@ -17,7 +18,8 @@ import java.util.stream.Collectors;
  * @author jesk
  */
 public class ControladorFuncionario extends Controlador {
-       public final ArrayList<Funcionario> funcionarios = new ArrayList<>();
+
+    public final ArrayList<Funcionario> funcionarios = new ArrayList<>();
     private static ControladorFuncionario instance;
 
     public static ControladorFuncionario getInstance() {
@@ -26,36 +28,49 @@ public class ControladorFuncionario extends Controlador {
         }
         return instance;
     }
-    
-      public Funcionario cadastra(String nome, String ID) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException {
+
+    public Funcionario cadastra(String nome, String ID) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException {
         verificaCampoVazio(nome, "Nome");
         verificaCampoVazio(ID, "Duração");
-        
-        
-         if (getFuncionarioByID(ID) != null) {
+
+        if (getFuncionarioByID(ID) != null) {
             throw new CadastroRepetidoException("Erro: Funcionario com id: '" + ID + "' já cadastrado.");
         }
-        
-        Funcionario funcionario = new Funcionario(nome, ID); 
+
+        Funcionario funcionario = new Funcionario(nome, ID);
         funcionarios.add(funcionario);
         return funcionario;
 
-}
-      
-   public Funcionario getFuncionarioByID(String ID) {
+    }
+    
+    public Funcionario editar(String nome, String ID, Funcionario funcionarioAntigo) throws CampoVazioException, EntidadeNotFoundException, CadastroRepetidoException{
+         verificaCampoVazio(nome, "Nome");
+        verificaCampoVazio(ID, "Duração");
+
+        if (getFuncionarioByID(ID) != null && !ID.equals(funcionarioAntigo.getID())) {
+            throw new CadastroRepetidoException("Erro: Funcionario com id: '" + ID + "' já cadastrado.");
+        }
+        
+        funcionarioAntigo.setID(ID);
+        funcionarioAntigo.setNome(nome);
+        
+        return funcionarioAntigo;
+    }
+    
+    
+
+    public Funcionario getFuncionarioByID(String ID) {
         return funcionarios.stream()
                 .filter(funcionario -> funcionario.getID().equals(ID))
                 .findFirst().orElse(null);
     }
-   
-     
-       public String[] nomeIDFuncionarios() {
-        List<String> names = funcionarios.stream().map(x -> x.getNome()+ " - " +x.getID()).collect(Collectors.toList());
+
+    public String[] nomeIDFuncionarios() {
+        List<String> names = funcionarios.stream().map(x -> x.getNome() + " - " + x.getID()).collect(Collectors.toList());
         return names.toArray(new String[0]);
     }
-   
-   public void remove(Funcionario funcionario) {
-       funcionarios.remove(funcionario);
-   }
-}
 
+    public void remove(Funcionario funcionario) {
+        funcionarios.remove(funcionario);
+    }
+}

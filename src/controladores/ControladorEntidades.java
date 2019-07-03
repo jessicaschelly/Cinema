@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 
 public class ControladorEntidades extends Controlador {
 
-    public final ArrayList<Funcionario> funcionarios = new ArrayList<>();
       public final ArrayList<Gerente> gerentes = new ArrayList<>();
     public final ArrayList<Sala> salas = new ArrayList<>();
     public final ArrayList<Ingresso> ingressos = new ArrayList<>();
@@ -36,9 +35,11 @@ public class ControladorEntidades extends Controlador {
         salas.add(new Sala("Sala 2"));
         salas.add(new Sala("Sala 3"));
         /* Adicionar os funcionários*/
-        funcionarios.add(new Funcionario("Henrique", "123"));
-        funcionarios.add(new Funcionario("Jéssica", "321"));
-        funcionarios.add(new Funcionario("Alfredo", "111"));
+        try {
+        ControladorFuncionario.getInstance().cadastra("Jéssica", "123");
+        }catch(Exception e){
+            
+        }
         /* Adicionar os gerentes*/
         gerentes.add(new Gerente("Fabiane", "1234"));
         
@@ -63,12 +64,6 @@ public class ControladorEntidades extends Controlador {
         } catch (Exception ex) {
             Logger.getLogger(ControladorEntidades.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public Funcionario getFuncionarioById(String id) {
-        return funcionarios.stream()
-                .filter(func -> func.getID().equals(id))
-                .findFirst().orElse(null);
     }
     
     public Gerente getGerenteoById(String id) {

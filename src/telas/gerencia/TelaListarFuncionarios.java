@@ -7,6 +7,8 @@ package telas.gerencia;
 
 import controladores.ControladorFilme;
 import controladores.ControladorFuncionario;
+import entidades.Filme;
+import entidades.Funcionario;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import telas.MainFrame;
@@ -21,17 +23,16 @@ public class TelaListarFuncionarios extends javax.swing.JPanel {
      * Creates new form TelaListarFuncionarios
      */
     public TelaListarFuncionarios() {
-            initComponents();
+        initComponents();
 
         list_funcionarios.setListData(ControladorFuncionario.getInstance().nomeIDFuncionarios());
         refresh();
     }
-    
-     public void refresh(){
-        list_funcionarios.setListData(ControladorFuncionario.getInstance().nomeIDFuncionarios());
-       
-    }
 
+    public void refresh() {
+        list_funcionarios.setListData(ControladorFuncionario.getInstance().nomeIDFuncionarios());
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +48,7 @@ public class TelaListarFuncionarios extends javax.swing.JPanel {
         list_funcionarios = new javax.swing.JList<>();
         btn_voltar = new javax.swing.JButton();
         btn_remover_filme = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(37, 184, 255));
@@ -71,13 +73,25 @@ public class TelaListarFuncionarios extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(214, 214, 214)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btn_remover_filme)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(283, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -86,12 +100,8 @@ public class TelaListarFuncionarios extends javax.swing.JPanel {
                             .addGap(284, 284, 284)
                             .addComponent(jLabel1))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(156, 156, 156)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn_remover_filme)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(658, 658, 658)
-                                    .addComponent(btn_voltar)))))
+                            .addGap(814, 814, 814)
+                            .addComponent(btn_voltar)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -99,14 +109,16 @@ public class TelaListarFuncionarios extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(92, 92, 92)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_remover_filme))
+                .addContainerGap(147, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(43, 43, 43)
                     .addComponent(jLabel1)
-                    .addGap(422, 422, 422)
-                    .addComponent(btn_remover_filme)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 515, Short.MAX_VALUE)
                     .addComponent(btn_voltar)
                     .addGap(44, 44, 44)))
         );
@@ -117,20 +129,38 @@ public class TelaListarFuncionarios extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_remover_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remover_filmeActionPerformed
+        if (list_funcionarios.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(null, "Nenhum funcionário selecionado!");
+            return;
+        }
+        
+        
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Você tem certeza que deseja remover este funcionário?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este funcionário?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
             ControladorFuncionario.getInstance().funcionarios.remove(list_funcionarios.getSelectedIndex());
-        }else{
+        } else {
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaGerencia();
         }
         refresh();
     }//GEN-LAST:event_btn_remover_filmeActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (list_funcionarios.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(null, "Nenhum funcionário selecionado!");
+            return;
+        }
+        
+        Funcionario f = ControladorFuncionario.getInstance().funcionarios.get(list_funcionarios.getSelectedIndex());
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastrarFuncionario(f);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_remover_filme;
     private javax.swing.JButton btn_voltar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> list_funcionarios;

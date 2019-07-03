@@ -112,7 +112,7 @@ public class TelaGerencia extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_adicionar_funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionar_funcionariosActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastrarFuncionario();
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastrarFuncionario(null);
     }//GEN-LAST:event_btn_adicionar_funcionariosActionPerformed
 
     private void btn_listar_filmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar_filmesActionPerformed

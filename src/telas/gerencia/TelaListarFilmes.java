@@ -110,6 +110,11 @@ public class TelaListarFilmes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_remover_filmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_remover_filmeActionPerformed
+          if (list_filmes.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Nenhum filme selecionado!");
+            return;
+        }
+        
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover este filme?", "Warning", dialogButton);
         if (dialogResult == JOptionPane.YES_OPTION) {
@@ -121,6 +126,11 @@ public class TelaListarFilmes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_remover_filmeActionPerformed
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        if (list_filmes.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(null, "Nenhum filme selecionado!");
+            return;
+        }
+        
         Filme filme = ControladorFilme.getInstance().filmes.get(list_filmes.getSelectedIndex());
         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroFilmes(filme);
 

@@ -1,8 +1,10 @@
 package telas;
 
 import controladores.ControladorEntidades;
+import controladores.ControladorFuncionario;
 import entidades.Funcionario;
 import entidades.Gerente;
+import entidades.Informacoes;
 import javax.swing.*;
 
 public class TelaPrincipal extends javax.swing.JPanel {
@@ -122,7 +124,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     private void btn_acesso_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acesso_funcionarioActionPerformed
         String option = JOptionPane.showInputDialog("Entre com o ID do funcionário:");
 
-        Funcionario funcionario = ControladorEntidades.getInstance().getFuncionarioById(option);
+        Funcionario funcionario = ControladorFuncionario.getInstance().getFuncionarioByID(option);
         if (funcionario != null) {
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaFuncionario(funcionario);
         } else if (option != null) {
@@ -142,7 +144,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_acesso_gerenciaActionPerformed
 
     private void btn_bomboniereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bomboniereActionPerformed
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(null);
+        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(new Informacoes());
     }//GEN-LAST:event_btn_bomboniereActionPerformed
 
 

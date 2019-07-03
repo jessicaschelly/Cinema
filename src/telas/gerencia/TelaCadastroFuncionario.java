@@ -5,6 +5,7 @@
  */
 package telas.gerencia;
 
+import entidades.Funcionario;
 import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -19,8 +20,16 @@ public class TelaCadastroFuncionario extends javax.swing.JPanel {
     /**
      * Creates new form TelaCadastroFuncionario
      */
-    public TelaCadastroFuncionario() {
+    private Funcionario funcionario;
+
+    public TelaCadastroFuncionario(Funcionario funcionario) {
         initComponents();
+        this.funcionario = funcionario;
+
+        if (funcionario != null) {
+            nome_funcionario.setText(funcionario.getNome());
+            id_funcionario.setText(funcionario.getID());
+        }
     }
 
     /**
@@ -148,11 +157,17 @@ public class TelaCadastroFuncionario extends javax.swing.JPanel {
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
         String nome = nome_funcionario.getText();
         String ID = id_funcionario.getText();
-     
+
         try {
-            controladores.ControladorFuncionario.getInstance().cadastra(nome, ID);
-            JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaGerencia();
+            if (this.funcionario != null) {
+                controladores.ControladorFuncionario.getInstance().editar(nome, ID, this.funcionario);
+                JOptionPane.showMessageDialog(null, "Funcionário editado com sucesso!");
+                ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaListarFuncionarios();
+            } else {
+                controladores.ControladorFuncionario.getInstance().cadastra(nome, ID);
+                JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
+                ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaGerencia();
+            }
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());

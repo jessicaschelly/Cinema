@@ -63,7 +63,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
         lbl_bem_vindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_bem_vindo.setText("label bem vindo");
 
-        btn_relatorio.setText("Relatório");
+        btn_relatorio.setText("Relatório ingressos");
         btn_relatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_relatorioActionPerformed(evt);

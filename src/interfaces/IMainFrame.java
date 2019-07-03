@@ -30,7 +30,7 @@ public interface IMainFrame {
     
     void exibeTelaManterSessoes();
     
-    void exibeTelaCadastrarFuncionario();
+    void exibeTelaCadastrarFuncionario(Funcionario func);
     
     void exibeTelaListarFuncionarios();
 }   

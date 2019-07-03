@@ -12,6 +12,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 
 public class ControladorSessao extends Controlador {
 
@@ -48,10 +49,14 @@ public class ControladorSessao extends Controlador {
         sessaoAntiga.setLinguagem(linguagem);
     }
 
-    private boolean podeCadastrarSessao(Sessao newSessao) {
+    private boolean podeCadastrarSessao(Sessao newSessao) throws Exception {
         for (Sessao sessao : sessoes) {
             if (sessao.getSala() == newSessao.getSala() && horariosColidem(sessao.getHorario(), sessao.getFilme().getDuracao().plusMinutes(15), newSessao.getHorario(), newSessao.getFilme().getDuracao().plusMinutes(15))) {
-                return false;
+                throw new Exception("Erro ao persistir sessão, horário conflita com outra sessão na mesma sala: \n" 
+                        + sessao.getSala().getNomeDaSala() + "\n"
+                        + sessao.getFilme().getTitulo() + "\n" 
+                        + "Horario inicial: " + sessao.getHorario() + "\n"
+                        + "Horário final: " + sessao.getHorario().plus(sessao.getFilme().getDuracao()).plusMinutes(15));
             }
         }
         return true;

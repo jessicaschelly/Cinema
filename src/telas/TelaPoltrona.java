@@ -36,9 +36,7 @@ public class TelaPoltrona extends javax.swing.JPanel {
         initComponents();
 
         //TODO for testing
-        txt_cpf_formatted.setText("11421161907");
-        txt_idade.setText("20");
-
+        
         lbl_nome_filme.setText(informacoes.sessao.getFilme().getTitulo());
         lbl_classificacao.setText(informacoes.sessao.getFilme().getClassificacao().getName());
         lbl_sala.setText(informacoes.sessao.getSala().getNomeDaSala());
@@ -98,11 +96,6 @@ public class TelaPoltrona extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         rbtn_meia_entrada = new javax.swing.JRadioButton();
         rbtn_inteira = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txt_idade = new javax.swing.JTextField();
-        txt_cpf_formatted = new javax.swing.JFormattedTextField();
         lbl_nome_filme = new javax.swing.JLabel();
         lbl_sessao = new javax.swing.JLabel();
         lbl_classificacao = new javax.swing.JLabel();
@@ -162,28 +155,6 @@ public class TelaPoltrona extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Insira seus dados:");
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CPF:");
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Idade:");
-
-        txt_idade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 250, 250), 4));
-        txt_idade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_idadeActionPerformed(evt);
-            }
-        });
-
-        try {
-            txt_cpf_formatted.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         lbl_nome_filme.setForeground(new java.awt.Color(37, 184, 255));
         lbl_nome_filme.setText("jLabel3");
 
@@ -210,28 +181,21 @@ public class TelaPoltrona extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(rbtn_meia_entrada)
-                    .addComponent(rbtn_inteira)
-                    .addComponent(jLabel8)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_cpf_formatted, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(rbtn_inteira)
                             .addComponent(jLabel15)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_classificacao)
                             .addComponent(lbl_nome_filme, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_sessao, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                            .addComponent(lbl_classificacao)
+                            .addComponent(lbl_sessao, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(rbtn_meia_entrada)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,29 +206,19 @@ public class TelaPoltrona extends javax.swing.JPanel {
                 .addComponent(rbtn_meia_entrada)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbtn_inteira)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
+                .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_cpf_formatted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(lbl_nome_filme))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_nome_filme)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_classificacao)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(lbl_classificacao))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_sessao)
                     .addComponent(jLabel16))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         panel_poltronas.setBackground(new java.awt.Color(102, 102, 102));
@@ -324,7 +278,7 @@ public class TelaPoltrona extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(472, 472, 472)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(130, 130, 130)
                 .addComponent(jLabel13)
@@ -349,7 +303,7 @@ public class TelaPoltrona extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(lbl_valor))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -414,36 +368,19 @@ public class TelaPoltrona extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_rbtn_meia_entradaActionPerformed
 
-    private void txt_idadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_idadeActionPerformed
-
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-        String cpf = txt_cpf_formatted.getText().replace("-", "").replace(".", "");
-        String idade = txt_idade.getText();
+      
 
         try {
-
-            if (!Utils.isCPF(cpf)) {
-                JOptionPane.showMessageDialog(null, "Erro, insira um cpf válido.");
-                return;
-            }
 
             if (poltronaSelecionada == null) {
                 JOptionPane.showMessageDialog(null, "Erro, selecione uma poltrona.");
                 return;
             }
-
-            int idadeNum = Integer.parseInt(idade);
-
-            if (idadeNum < informacoes.sessao.getFilme().getClassificacao().getIdade()) {
-                JOptionPane.showMessageDialog(null, "Erro, idade abaixo da classificação indicativa do filme.");
-                return;
-            }
             
             informacoes.valorIngresso = rbtn_meia_entrada.isSelected() ? 20 : 40;
             informacoes.poltrona = this.poltronaSelecionada;
-            int aceitou = JOptionPane.showConfirmDialog(SwingUtilities.getWindowAncestor(this), "Deseja adicionar um combo da bomboniere?");
+            int aceitou = JOptionPane.showConfirmDialog(SwingUtilities.getWindowAncestor(this), "Deseja adicionar um combo da bomboniere?", "Bomboniere", JOptionPane.YES_NO_OPTION);
             if (aceitou == JOptionPane.YES_OPTION) {
                 ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(informacoes);
             } else {
@@ -471,7 +408,6 @@ public class TelaPoltrona extends javax.swing.JPanel {
     private javax.swing.JButton btn_salvar;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -479,13 +415,11 @@ public class TelaPoltrona extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_classificacao;
@@ -496,7 +430,5 @@ public class TelaPoltrona extends javax.swing.JPanel {
     private javax.swing.JPanel panel_poltronas;
     private javax.swing.JRadioButton rbtn_inteira;
     private javax.swing.JRadioButton rbtn_meia_entrada;
-    private javax.swing.JFormattedTextField txt_cpf_formatted;
-    private javax.swing.JTextField txt_idade;
     // End of variables declaration//GEN-END:variables
 }

@@ -142,6 +142,11 @@ public class TelaListarSessoes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void remover_sessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_sessaoActionPerformed
+        if (list_sessoes.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Nenhuma sessão selecionada!");
+            return;
+        }
+
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja remover esta sessão?", "Warning", dialogButton);
         if (dialogResult == JOptionPane.YES_OPTION) {
@@ -158,8 +163,12 @@ public class TelaListarSessoes extends javax.swing.JPanel {
     }//GEN-LAST:event_list_sessoesKeyPressed
 
     private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
-        Sessao sessao = ControladorSessao.getInstance().sessoes.get(list_sessoes.getSelectedIndex());
+        if (list_sessoes.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Nenhuma sessão selecionada!");
+            return;
+        }
 
+        Sessao sessao = ControladorSessao.getInstance().sessoes.get(list_sessoes.getSelectedIndex());
         ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaCadastroSessoes(sessao);
     }//GEN-LAST:event_btn_editarActionPerformed
 

@@ -11,6 +11,7 @@ import entidades.Funcionario;
 import entidades.Informacoes;
 import entidades.Produto;
 import entidades.Sessao;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -46,6 +47,7 @@ public class TelaBombonier extends javax.swing.JPanel {
             btn_voltar_continuar.setText("Continuar");
         }else{
             btn_voltar_continuar.setText("Voltar");
+             btn_voltar_continuar.setBackground(Color.RED);
         }
 
     }

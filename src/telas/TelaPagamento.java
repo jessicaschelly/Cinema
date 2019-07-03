@@ -24,8 +24,8 @@ import javax.swing.SwingUtilities;
  */
 public class TelaPagamento extends javax.swing.JPanel {
 
-    
     private Informacoes informacoes;
+
     public String dataAtual() {
         java.util.Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
@@ -34,16 +34,15 @@ public class TelaPagamento extends javax.swing.JPanel {
     }
 
     public TelaPagamento(Informacoes informacoes) {
-        
-        System.out.println(informacoes.poltrona.posicao);
+
         initComponents();
-        
-        if (informacoes.produto != null)  {
-              lbl_valorTotal.setText(String .valueOf(informacoes.valorIngresso + informacoes.produto.getPreco()));
+
+        if (informacoes.produto != null) {
+            lbl_valorTotal.setText(String.valueOf(informacoes.valorIngresso + informacoes.produto.getPreco()));
         } else {
-             lbl_valorTotal.setText(String .valueOf(informacoes.valorIngresso));
+            lbl_valorTotal.setText(String.valueOf(informacoes.valorIngresso));
         }
-      
+
         this.informacoes = informacoes;
         if (informacoes.sessao != null) {
             painelImagemFundo2.setImg(new ImageIcon(informacoes.sessao.getFilme().getImage()));
@@ -55,9 +54,9 @@ public class TelaPagamento extends javax.swing.JPanel {
         if (informacoes.produto != null) {
             img_produto.setImg(new ImageIcon(informacoes.produto.getImage()));
             lbl_produto.setText(informacoes.produto.getNome());
-            lbl_preco_produto.setText(informacoes.produto.getPrecoString());
+            lbl_preco_produto.setText("R$: " + informacoes.produto.getPrecoString());
         }
-        
+
         if (informacoes.sessao == null) {
             painelImagemFundo2.setImg(new ImageIcon("resources/sem-filme.jpg"));
             lbl_titulo.setText("Sem filme!");
@@ -208,6 +207,8 @@ public class TelaPagamento extends javax.swing.JPanel {
         lbl_linguagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_linguagem.setText("jLabel2");
 
+        img_produto.setBackground(new java.awt.Color(250, 250, 250));
+
         javax.swing.GroupLayout img_produtoLayout = new javax.swing.GroupLayout(img_produto);
         img_produto.setLayout(img_produtoLayout);
         img_produtoLayout.setHorizontalGroup(
@@ -219,12 +220,7 @@ public class TelaPagamento extends javax.swing.JPanel {
             .addGap(0, 173, Short.MAX_VALUE)
         );
 
-        lbl_preco_produto.setText("jLabel2");
-
         lbl_produto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbl_produto.setText("jLabel2");
-
-        jLabel3.setText("R$");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -431,15 +427,24 @@ public class TelaPagamento extends javax.swing.JPanel {
     private void btn_concluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_concluirActionPerformed
         JOptionPane.showMessageDialog(null, "Por favor, insira seu cartão no leitor");
         JOptionPane.showMessageDialog(null, "Compra confirmada!");
-        this.informacoes.poltrona.ocupada = true;
-        ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaIngressoImpresso(informacoes);
+        if (informacoes.poltrona != null) {
+            this.informacoes.poltrona.ocupada = true;
+        }
+
+        if (informacoes.sessao != null) {
+            controladores.ControladorEntidades.getInstance().geraIngresso(informacoes.sessao, informacoes.valorIngresso == 40);
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaIngressoImpresso(informacoes);
+        } else {
+            JOptionPane.showMessageDialog(null, "Seu código para retirada do produto " + informacoes.produto.getNome() + " é: " + String.valueOf(Math.round(Math.random() * 1000)));
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaPrincipal();
+        }
     }//GEN-LAST:event_btn_concluirActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         if (informacoes.sessao != null) {
             ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaSelecaoSessao(informacoes.sessao.getFilme());
-        } else{
-            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(null);
+        } else {
+            ((MainFrame) SwingUtilities.getWindowAncestor(this)).exibeTelaBombonier(new Informacoes());
         }
 
     }//GEN-LAST:event_btn_voltarActionPerformed

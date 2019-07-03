@@ -154,8 +154,8 @@ public class MainFrame extends javax.swing.JFrame implements IMainFrame {
         validate();
     }
 
-    public void exibeTelaCadastrarFuncionario() {
-        TelaCadastroFuncionario tf = new TelaCadastroFuncionario();
+    public void exibeTelaCadastrarFuncionario(Funcionario funcionario) {
+        TelaCadastroFuncionario tf = new TelaCadastroFuncionario(funcionario);
         setContentPane(tf);
         validate();
     }
